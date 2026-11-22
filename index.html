@@ -1,0 +1,2092 @@
+<!DOCTYPE html>
+<!-- saved from url=(0032)https://wguexams.github.io/D332/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q98PCV1Q15"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-Q98PCV1Q15');
+</script>
+
+<title>WGU Exams — Security+ (SY0-801) Practice Exam</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#001731">
+<meta property="og:title" content="WGU Exams — Security+ (SY0-801) Practice Exam"><meta property="og:description" content="Free interactive Security+ (SY0-801) practice. No sign-up."><meta property="og:type" content="website">
+<style>
+
+:root{
+  --bg:#eef1f4;
+  --panel:#ffffff;
+  --panel-2:#f7f9fb;
+  --panel-3:#eef1f4;
+  --border:#d7dee6;
+  --border-soft:#e6ebf0;
+  --text:#12161c;
+  --text-dim:#48505c;
+  --text-faint:#8993a1;
+  --cyan:#2563eb;
+  --cyan-dim:#1d4ed8;
+  --red:#d6484d;
+  --green:#1c9a57;
+  --amber:#b4790a;
+  --sev-bg:#fbe1e2; --sev-text:#8a1f24; --sev-border:#eab8ba;
+  --badge-good-bg:#dcf7e6; --badge-good-text:#116638;
+  --badge-bad-bg:#fbe1e2; --badge-bad-text:#8a1f24;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:'Inter',system-ui,-apple-system,sans-serif;min-height:100vh;}
+::selection{background:var(--cyan-dim);color:#fff;}
+
+/* ---------- Landing screen ---------- */
+#landingScreen{min-height:100vh;background:#eef1f4;color:#12161c;font-family:'Inter',system-ui,-apple-system,sans-serif;}
+#landingScreen .menu-inner{max-width:720px;margin:0 auto;padding:4rem 2rem 5rem;}
+#landingScreen .menu-top{margin-bottom:2.6rem;text-align:center;}
+#landingScreen .menu-top h1{font-size:21px;font-weight:600;font-family:'Space Grotesk',sans-serif;color:#12161c;margin:0;}
+#landingScreen .menu-top .menu-sub{font-size:13.5px;color:#48505c;margin-top:6px;}
+#landingScreen .exams-btn-fixed{position:fixed;bottom:24px;left:40px;z-index:1000;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:15.5px;padding:15px 34px;border-radius:10px;background:#ffffff;color:#12161c;border:1px solid #d7dee6;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:9px;transition:all .15s ease;box-shadow:0 10px 30px rgba(18,22,28,0.08);}
+#landingScreen .exams-btn-fixed:hover{border-color:#1d4ed8;background:#f7f9fb;}
+@media(max-width:600px){#landingScreen .exams-btn-fixed{left:50%;transform:translateX(-50%);bottom:90px;}#landingScreen .exams-btn-fixed:hover{transform:translateX(-50%) translateY(-1px);}}
+#landingScreen .coffee-btn-big{display:inline-flex;align-items:center;gap:16px;background:#FFDD00;border:none;border-radius:99px;padding:26px 52px;font-size:28px;font-weight:800;color:#000;cursor:pointer;text-decoration:none;box-shadow:0 14px 40px rgba(255,221,0,0.25);transition:transform .15s,box-shadow .15s;font-family:system-ui,-apple-system,sans-serif;margin-top:36px;}
+#landingScreen .coffee-btn-big:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 18px 50px rgba(255,221,0,0.35);}
+#landingScreen .coffee-btn-big span{font-size:40px;}
+@media(max-width:600px){#landingScreen .coffee-btn-big{padding:18px 32px;font-size:20px;gap:12px;}#landingScreen .coffee-btn-big span{font-size:30px;}}
+#landingScreen .begin-btn-fixed{position:fixed;bottom:24px;right:40px;z-index:1000;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:15.5px;padding:15px 34px;border-radius:10px;background:#2563eb;color:#fff;border:none;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:9px;transition:all .15s ease;box-shadow:0 10px 30px rgba(37,99,235,0.3);}
+#landingScreen .begin-btn-fixed:hover{filter:brightness(1.08);transform:translateY(-1px);}
+@media(max-width:600px){#landingScreen .begin-btn-fixed{right:50%;transform:translateX(50%);bottom:20px;}#landingScreen .begin-btn-fixed:hover{transform:translateX(50%) translateY(-1px);}#landingScreen .exams-btn-fixed,#landingScreen .begin-btn-fixed{width:calc(100% - 40px);justify-content:center;}}
+
+/* ---------- Exam chrome (ticket bar / flag bar / bottom bar) ---------- */
+#examChrome{position:fixed;top:0;left:0;right:0;width:100%;z-index:200;display:none;}
+.examtop{background:linear-gradient(180deg,#2563eb,#1d4ed8);color:#eaf1ff;display:flex;align-items:center;justify-content:space-between;padding:10px 22px;font-family:'Inter',sans-serif;gap:12px;}
+.examtop-left{background:none;border:none;color:#eaf1ff;font-size:15px;font-weight:600;cursor:pointer;padding:0;font-family:'Space Grotesk',sans-serif;text-align:left;}
+.examtop-left:hover{text-decoration:underline;}
+.examtop-right{display:flex;flex-direction:column;align-items:flex-end;gap:3px;flex:none;}
+.examtop-row{display:flex;align-items:center;gap:6px;font-size:12.5px;color:#dbeafe;white-space:nowrap;}
+.examflagbar{background:#4a7fd6;display:flex;justify-content:flex-end;padding:8px 22px;}
+.examflagbtn{background:none;border:none;color:#0d2b6b;font-weight:600;font-size:12.5px;cursor:pointer;display:flex;align-items:center;gap:6px;padding:4px 8px;border-radius:5px;transition:background .15s ease;}
+.examflagbtn:hover{background:rgba(255,255,255,0.25);}
+.examflagbtn.flagged{background:#fff;color:#b5390b;}
+.examflagbtn.flagged svg{fill:#b5390b;}
+#examBottom{position:fixed;bottom:0;left:0;right:0;width:100%;z-index:200;background:linear-gradient(180deg,#1d4ed8,#2563eb);display:none;justify-content:flex-end;gap:14px;padding:12px 22px;}
+.prevnext-btn{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.25);color:#eaf1ff;padding:9px 18px;border-radius:7px;font-family:'Inter',sans-serif;font-weight:600;font-size:13.5px;cursor:pointer;display:flex;align-items:center;gap:7px;transition:all .15s ease;}
+.prevnext-btn:hover{background:rgba(255,255,255,0.18);}
+.prevnext-btn:disabled{cursor:default;opacity:.4;pointer-events:none;}
+body.has-exam-chrome{overflow:hidden;height:100vh;}
+body.has-exam-chrome #examScroll{position:fixed;top:100px;bottom:76px;left:0;right:0;overflow-y:auto;overflow-x:hidden;}
+#examScroll{scrollbar-gutter:stable;display:none;}
+
+.wrap{max-width:980px;margin:0 auto;padding:26px 24px 60px;}
+
+/* ---------- Brief / incident-style header ---------- */
+.brief{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:18px 22px;margin-bottom:22px;display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center;}
+@media(max-width:640px){.brief{grid-template-columns:1fr;}.doc-btns{justify-content:flex-start;}}
+.brief h1{font-family:'Space Grotesk',sans-serif;font-size:19px;margin:0;font-weight:600;color:var(--text);display:flex;align-items:center;gap:9px;flex-wrap:wrap;}
+.sev-chip{font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.5px;background:var(--sev-bg);color:var(--sev-text);border:1px solid var(--sev-border);padding:3px 9px;border-radius:5px;}
+.doc-btns{display:flex;gap:10px;flex-wrap:wrap;}
+.doc-btn{display:flex;align-items:center;gap:9px;border:none;color:#fff;padding:10px 16px;border-radius:9px;font-family:'Inter',sans-serif;font-weight:600;font-size:13px;cursor:pointer;transition:all .15s ease;background:linear-gradient(180deg,#2563eb,#1d4ed8);}
+.doc-btn:hover{filter:brightness(1.08);}
+
+.qread-overlay{position:fixed;inset:0;background:rgba(10,14,20,0.55);display:none;align-items:center;justify-content:center;z-index:300;padding:20px;}
+.qread-overlay.show{display:flex;}
+.qread-modal{width:min(720px,95vw);max-height:88vh;overflow:auto;background:var(--panel);border:1px solid var(--border);border-radius:12px;box-shadow:0 30px 70px rgba(0,0,0,0.25);}
+.qread-bar{background:linear-gradient(180deg,#2563eb,#1d4ed8);color:#eaf1ff;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;font-family:'Inter',sans-serif;font-weight:600;font-size:15px;border-top-left-radius:12px;border-top-right-radius:12px;}
+.qread-bar .title{display:flex;align-items:center;gap:10px;}
+.qx-close{width:30px;height:30px;border-radius:50%;background:var(--red);color:#fff;border:none;font-weight:700;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;}
+.qread-body{padding:20px 22px;font-size:14px;line-height:1.7;color:var(--text-dim);}
+.qread-body p{margin:0 0 12px;}
+.qread-body p:last-child{margin-bottom:0;}
+.qread-body strong{color:var(--text);}
+
+/* ---------- Terminal / output panels ---------- */
+.term-panel{background:var(--panel);border:1px solid var(--border);border-radius:12px;margin-bottom:22px;overflow:hidden;}
+.term-tabs{display:flex;border-bottom:1px solid var(--border);background:var(--panel-2);flex-wrap:wrap;}
+.term-tab{padding:12px 22px;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:13.5px;color:var(--text-dim);cursor:pointer;border-bottom:2px solid transparent;transition:all .15s ease;background:none;border-left:none;border-right:none;border-top:none;}
+.term-tab.active{color:var(--cyan);border-bottom-color:var(--cyan);background:var(--panel-3);}
+.term-body{background:#050a0f;padding:16px 18px;max-height:380px;overflow:auto;}
+.term-body pre{margin:0;font-family:'IBM Plex Mono',monospace;font-size:12.5px;line-height:1.6;color:#c9d6e0;white-space:pre-wrap;word-break:break-word;}
+
+/* ---------- Generic section card ---------- */
+.section{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:22px;margin-bottom:22px;}
+.section h2{font-family:'Space Grotesk',sans-serif;font-size:15px;margin:0 0 4px;color:var(--text);font-weight:600;}
+.section .sub{color:var(--text-faint);font-size:12.5px;margin-bottom:18px;font-family:'IBM Plex Mono',monospace;}
+
+/* ---------- Findings / answer grid ---------- */
+.answer-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+@media(max-width:700px){.answer-grid{grid-template-columns:1fr;}}
+.qbox{background:var(--panel-2);border:1px solid var(--border-soft);border-radius:10px;padding:16px 18px;}
+.qbox.actions-box{grid-column:1 / -1;}
+.qbox label{display:block;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:13.5px;color:var(--text);margin-bottom:10px;}
+.qbox select{width:100%;background:var(--panel-3);border:1px solid var(--border);color:var(--text);border-radius:7px;padding:10px 12px;font-family:'IBM Plex Mono',monospace;font-size:13px;cursor:pointer;}
+.fb{font-size:12px;font-family:'IBM Plex Mono',monospace;min-height:16px;margin-top:6px;}
+.fb.correct{color:var(--green);}
+.fb.incorrect{color:var(--red);}
+
+.chk-list{display:flex;flex-direction:column;border-radius:8px;overflow:hidden;}
+.chk{display:flex;align-items:center;gap:12px;padding:13px 16px;font-size:13.5px;color:var(--text-dim);cursor:pointer;border-bottom:1px solid var(--border-soft);background:var(--panel-3);}
+.chk:last-child{border-bottom:none;}
+.chk:hover{background:var(--panel-2);color:var(--text);}
+.chk input{width:17px;height:17px;flex-shrink:0;accent-color:var(--cyan);}
+.chk .badge{margin-left:auto;font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;padding:3px 9px;border-radius:4px;display:none;white-space:nowrap;flex:none;}
+.chk .badge.correct{display:inline-block;background:var(--badge-good-bg);color:var(--badge-good-text);}
+.chk .badge.incorrect{display:inline-block;background:var(--badge-bad-bg);color:var(--badge-bad-text);}
+
+/* ---------- Actions row ---------- */
+.actions{display:flex;gap:12px;margin-top:20px;flex-wrap:wrap;align-items:center;}
+.btn{font-family:'Inter',sans-serif;font-weight:600;font-size:13.5px;padding:11px 20px;border-radius:8px;cursor:pointer;border:1px solid transparent;transition:all .15s ease;}
+.btn-primary{background:var(--cyan);color:#fff;}
+.btn-primary:hover{filter:brightness(1.08);transform:translateY(-1px);}
+.btn-ghost{background:transparent;border-color:var(--border);color:var(--text-dim);}
+.btn-ghost:hover{background:var(--panel-2);color:var(--text);}
+.score-pill{font-family:'IBM Plex Mono',monospace;font-size:13px;padding:9px 16px;border-radius:8px;border:1px solid var(--border);color:var(--text-dim);display:none;}
+.score-pill.show{display:inline-block;}
+.score-pill.full{border-color:var(--green);color:var(--green);}
+.score-pill.partial{border-color:var(--amber);color:var(--amber);}
+
+/* ---------- Analysis / explanation ---------- */
+.analysis{margin-top:20px;border-top:1px solid var(--border-soft);padding-top:18px;display:none;}
+.analysis.show{display:block;}
+.analysis h3{font-family:'Space Grotesk',sans-serif;font-size:14px;margin:0 0 12px;color:var(--cyan);}
+.analysis p{margin:0 0 10px;font-size:13.5px;color:var(--text-dim);line-height:1.65;}
+.analysis ul{margin:0 0 10px;padding-left:20px;}
+.analysis li{font-size:13.5px;color:var(--text-dim);line-height:1.65;margin-bottom:6px;}
+.analysis strong{color:var(--text);}
+
+/* ---------- Reused components from earlier question-type builds ---------- */
+.table-wrap{background:var(--panel-2);border:1px solid var(--border-soft);border-radius:10px;overflow-x:auto;}
+table.pbq{width:100%;border-collapse:collapse;min-width:760px;}
+table.pbq th{text-align:left;font-weight:650;font-size:.82rem;color:var(--text-dim);padding:8px 14px;border-bottom:1px solid var(--border-soft);border-top:1px solid var(--border-soft);font-family:'Space Grotesk',sans-serif;}
+table.pbq td{padding:10px 14px;border-bottom:1px solid var(--border-soft);vertical-align:top;}
+table.pbq tr:last-child td{border-bottom:0;}
+td.payload code{display:block;font:13px/1.45 'IBM Plex Mono',monospace;background:var(--panel-3);padding:7px 9px;border-radius:4px;word-break:break-all;color:var(--text);}
+.cell-select{width:100%;font:inherit;font-size:.85rem;padding:7px;border-radius:6px;border:1px solid var(--border);background:var(--panel);color:var(--text);font-family:'IBM Plex Mono',monospace;cursor:pointer;}
+.cell-select.correct{border-color:var(--green);background:var(--badge-good-bg);}
+.cell-select.wrong{border-color:var(--red);background:var(--badge-bad-bg);}
+.row-fb{font-size:.78rem;margin-top:4px;}
+.row-fb.good{color:var(--green);}
+.row-fb.bad{color:var(--red);}
+
+.sim{background:var(--panel-2);border:1px solid var(--border-soft);border-radius:8px;overflow:hidden;}
+.urlbar{display:flex;gap:10px;align-items:center;padding:10px 14px;border-bottom:1px solid var(--border-soft);background:var(--panel-3);}
+.urlbar .nav-dots{color:var(--text-faint);letter-spacing:4px;}
+.urlbar .url{flex:1;background:var(--panel);border:1px solid var(--border-soft);border-radius:999px;padding:4px 14px;font-size:.85rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-family:'IBM Plex Mono',monospace;}
+.viewport{padding:16px;min-height:340px;}
+.login-mock{background:#00a9c6;border-radius:6px;padding:26px 16px 28px;text-align:center;color:#fff;}
+.login-mock h2{margin:0 0 16px;font-size:1.4rem;}
+.login-mock .field{width:min(300px,90%);margin:0 auto 10px;padding:12px 14px;background:#2f3bc4;text-align:left;color:#fff;border-radius:3px;}
+.login-mock .go{width:min(300px,90%);margin:16px auto 0;padding:12px;background:#ffd04a;color:#111;font-weight:600;border-radius:3px;}
+.sim-actions{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:12px 14px 14px;border-top:1px solid var(--border-soft);}
+.sim-actions button{font-family:'IBM Plex Mono',monospace;font-size:.82rem;padding:10px 6px;border-radius:5px;background:var(--panel);border:1px solid var(--border);cursor:pointer;color:var(--text-dim);}
+.sim-actions button.active{border-color:var(--cyan);box-shadow:inset 0 0 0 2px var(--cyan);color:var(--cyan);}
+@media(max-width:560px){.sim-actions{grid-template-columns:repeat(2,1fr);}}
+.cert{max-width:480px;margin:0 auto;border:2px solid #4aa8e8;border-radius:4px;background:#fff;color:#111;}
+.cert .title{background:#62bdf6;padding:8px 12px;font-size:1.05rem;text-align:center;}
+.cert .tabs{display:flex;gap:2px;padding:8px 12px 0;background:#e9f4fc;font-size:.82rem;}
+.cert .tabs span{padding:4px 10px;border:1px solid #bbb;border-bottom:0;background:#ddd;}
+.cert .tabs span.on{background:#fff;}
+.cert .inner{padding:14px 18px;}
+.cert h3{margin:0 0 8px;font-size:.95rem;border-bottom:1px solid #333;padding-bottom:8px;}
+.cert dl{display:grid;grid-template-columns:max-content 1fr;gap:10px 16px;margin:16px 0 8px;}
+.cert dt{font-weight:700;}
+.cert dd{margin:0;}
+.cert .btns{display:flex;justify-content:flex-end;gap:10px;padding:0 18px 12px;}
+.cert .btns span{border:1px solid #888;background:#eee;padding:3px 10px;font-size:.82rem;}
+pre.src{margin:0;font:12.5px/1.5 'IBM Plex Mono',monospace;white-space:pre-wrap;word-break:break-word;background:var(--panel-3);padding:14px;border-radius:6px;overflow-x:auto;}
+.ln{display:block;}
+.ln b{display:inline-block;width:2.2em;color:var(--text-faint);font-weight:400;user-select:none;}
+.ck-wrap{overflow-x:auto;}
+table.ck{border-collapse:collapse;width:100%;min-width:700px;font-size:.8rem;}
+table.ck th,table.ck td{border:1px solid var(--border-soft);padding:4px 8px;text-align:left;vertical-align:top;word-break:break-all;}
+table.ck th{background:var(--panel-3);}
+table.ck td.cb{text-align:center;white-space:nowrap;}
+.dnd{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+@media(max-width:700px){.dnd{grid-template-columns:1fr;}}
+.opt{background:#f58220;color:#fff;padding:12px 14px;margin-bottom:8px;border-radius:3px;cursor:grab;font-weight:600;user-select:none;font-size:.88rem;}
+.opt:active{cursor:grabbing;}
+.slot-label{font-weight:650;color:var(--cyan);margin:10px 0 4px;font-size:.85rem;}
+.slot{min-height:52px;border:2px dashed #f58220;border-radius:3px;display:flex;align-items:center;justify-content:center;padding:4px;background:var(--panel);}
+.slot.over{background:var(--panel-2);}
+.slot .q{font-size:1.5rem;color:#f58220;font-weight:700;}
+.slot .opt{margin:0;width:100%;}
+.slot.correct{border:2px solid var(--green);}
+.slot.wrong{border:2px solid var(--red);}
+.pool{min-height:56px;padding:4px;border-radius:4px;}
+.hint{color:var(--text-faint);font-size:.8rem;margin-top:6px;}
+
+.simgrid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:20px;align-items:start;}
+@media(max-width:820px){.simgrid{grid-template-columns:minmax(0,1fr);}}
+.net{background:var(--panel-2);border:1px solid var(--border-soft);border-radius:8px;padding:16px 12px;text-align:center;}
+.ws{display:inline-flex;flex-direction:column;align-items:center;gap:6px;padding:10px 20px 11px;border-radius:8px;background:#d9f5ee;color:#0b6b57;font-weight:700;letter-spacing:.03em;font-size:.82rem;}
+.down{color:#19b394;font-size:1.5rem;line-height:1.2;margin:4px 0;}
+.zones{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,2.2fr);gap:8px;align-items:stretch;}
+@media(max-width:560px){.zones{grid-template-columns:1fr;}.linkarrow{transform:rotate(90deg);}}
+.zone{display:flex;flex-direction:column;border:2px dashed var(--border);border-radius:8px;padding:10px 8px 12px;min-width:0;}
+.zone h4{margin:0 0 10px;font-size:.78rem;letter-spacing:.05em;text-align:center;white-space:nowrap;}
+.zone.cdn h4,.zone.cdn .node{color:#d98200;}
+.zone.prod h4,.zone.prod .node{color:#2b6fe0;}
+.zone .nodes{flex:1;display:flex;align-items:center;justify-content:center;gap:6px;}
+.node .ico{height:52px;display:flex;align-items:center;justify-content:center;}
+.zone .arrow{color:#19b394;font-weight:700;}
+.linkarrow{align-self:center;color:#19b394;font-size:1.5rem;font-weight:700;}
+.node{background:var(--panel);border:2px solid currentColor;border-radius:8px;padding:10px 6px;min-width:110px;min-height:120px;justify-content:center;display:flex;flex-direction:column;align-items:center;gap:4px;cursor:pointer;}
+.node:hover{background:var(--panel-2);}
+.node.active{box-shadow:0 0 0 3px currentColor;}
+.node .nn{font-weight:700;font-size:.85rem;white-space:nowrap;}
+.node .nh{font-size:.65rem;opacity:.85;white-space:nowrap;}
+.nmap{margin-top:14px;border-radius:6px;overflow:hidden;border:1px solid var(--border-soft);}
+.nmap .nh2{background:#0d6efd;color:#fff;padding:10px 14px;display:flex;justify-content:space-between;align-items:center;font-weight:700;font-size:.85rem;}
+.nmap .nh2 button{background:transparent;color:#fff;border:2px solid #fff;border-radius:4px;padding:0 8px;line-height:1.4;cursor:pointer;}
+.nmap pre{margin:0;background:#050a0f;color:#c9d6e0;padding:14px 16px;font:12.5px/1.6 'IBM Plex Mono',monospace;overflow-x:auto;white-space:pre;}
+.simright .term-tabs{border-radius:8px 8px 0 0;}
+
+.hotpanel{border-radius:8px;overflow:hidden;border:1px solid var(--border-soft);}
+.hotprompt{padding:10px 14px;font-size:.95rem;border-bottom:1px solid var(--border-soft);display:flex;justify-content:space-between;gap:10px;align-items:flex-start;flex-wrap:wrap;font-family:'Space Grotesk',sans-serif;font-weight:600;}
+.hotprompt .cnt{font-size:.78rem;color:var(--text-faint);white-space:nowrap;padding-top:3px;font-family:'IBM Plex Mono',monospace;font-weight:400;}
+.robots{padding:6px 4px 10px;}
+.rline{display:flex;align-items:center;gap:10px;padding:4px 8px;border:1px solid transparent;border-radius:4px;cursor:pointer;font:13px/1.5 'IBM Plex Mono',monospace;}
+.rline:hover{background:var(--panel-2);}
+.rline .rn{width:1.8em;text-align:right;color:var(--text-faint);flex:none;}
+.rline input{flex:none;}
+.rline.good{border-color:var(--green);background:var(--badge-good-bg);}
+.rline.bad{border-color:var(--red);background:var(--badge-bad-bg);}
+.rline.missed{border-color:var(--amber);background:#fdecd2;}
+.rline .rnote{margin-left:auto;font:11px system-ui,sans-serif;color:var(--amber);}
+
+.reconbox{border-radius:6px;overflow:hidden;border:1px solid var(--border-soft);}
+.reconbox .rh{background:#0d6efd;color:#fff;padding:10px 16px;font-weight:650;font-size:.9rem;}
+.reconbox pre{margin:0;background:#050a0f;color:#c9d6e0;font:12.5px/1.5 'IBM Plex Mono',monospace;padding:14px 16px;white-space:pre-wrap;word-break:break-word;overflow-x:auto;}
+.cmdlist{list-style:none;margin:0;padding:10px 16px;background:var(--panel);}
+.cmdlist li{font:12.5px/1.6 'IBM Plex Mono',monospace;padding:2px 0;color:var(--text-dim);}
+.cmdnote{font-size:.8rem;color:var(--text-faint);padding:8px 16px 12px;background:var(--panel);}
+
+/* ═════════ WGU BRAND RESTYLE (matches wguexams.github.io) ═════════ */
+:root{--cyan:#0070F0;--cyan-dim:#002855;--bg:#EEF6F9;--panel-3:#EEF6F9;}
+body{background:#EEF6F9;}
+
+/* landing */
+#landingScreen{min-height:100vh;background:linear-gradient(180deg,#001731 0%,#002855 45%,#001f44 100%);color:#fff;position:relative;overflow:hidden;isolation:isolate;padding:0 1.25rem 2.5rem;}
+#landingScreen::before{content:"";position:absolute;inset:0;z-index:-1;
+  background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:44px 44px;
+  mask-image:radial-gradient(ellipse 80% 70% at 50% 20%,#000 25%,transparent 75%);-webkit-mask-image:radial-gradient(ellipse 80% 70% at 50% 20%,#000 25%,transparent 75%);}
+#landingScreen::after{content:"";position:absolute;z-index:-1;width:1100px;height:700px;left:50%;top:-380px;transform:translateX(-50%);
+  background:radial-gradient(ellipse 30% 45% at 35% 50%,rgba(0,112,240,.55),transparent 100%),radial-gradient(ellipse 30% 45% at 65% 45%,rgba(70,177,239,.45),transparent 100%),radial-gradient(ellipse 28% 35% at 50% 75%,rgba(151,225,82,.2),transparent 100%);}
+.ls-hero{max-width:760px;margin:0 auto;padding:3.6rem 0 2.6rem;text-align:center;}
+.ls-brand{display:inline-flex;align-items:center;gap:10px;color:#cbd5e1;text-decoration:none;font:600 15px 'Space Grotesk',sans-serif;margin-bottom:26px;}
+.ls-brand:hover{color:#fff;}
+.ls-mark{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#0070F0,#46B1EF);box-shadow:0 8px 24px rgba(0,112,240,.5);}
+.ls-mark svg{width:19px;height:19px;color:#fff;}
+.ls-pill{display:inline-flex;align-items:center;gap:8px;font:600 12px 'IBM Plex Mono',monospace;letter-spacing:.4px;color:#cfe9fb;background:rgba(70,177,239,.14);border:1px solid rgba(70,177,239,.4);padding:6px 13px;border-radius:99px;margin-bottom:20px;}
+.ls-dot{width:7px;height:7px;border-radius:50%;background:#97E152;animation:lsPing 2s infinite;}
+@keyframes lsPing{0%{box-shadow:0 0 0 0 rgba(151,225,82,.6);}70%{box-shadow:0 0 0 8px rgba(151,225,82,0);}100%{box-shadow:0 0 0 0 rgba(151,225,82,0);}}
+#landingScreen h1{font:700 clamp(36px,6.4vw,58px)/1.04 'Space Grotesk',sans-serif;letter-spacing:-1.4px;margin:0 0 16px;}
+.ls-hl{background:linear-gradient(90deg,#46B1EF,#97E152 50%,#46B1EF);background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:lsShine 6s linear infinite;}
+@keyframes lsShine{to{background-position:200% center;}}
+.ls-sub{font-size:16.5px;line-height:1.6;color:#94a3b8;max-width:520px;margin:0 auto 28px;}
+.ls-stats{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-bottom:30px;}
+.ls-stat{min-width:120px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:12px 18px;}
+.ls-stat b{display:block;font:700 24px 'Space Grotesk',sans-serif;color:#fff;}
+.ls-stat span{font-size:12.5px;color:#94a3b8;}
+.ls-cta{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;}
+.ls-begin{display:inline-flex;align-items:center;gap:10px;font:700 17px 'Space Grotesk',sans-serif;padding:16px 34px;border-radius:12px;border:0;cursor:pointer;color:#fff;background:#0070F0;box-shadow:0 0 0 1px rgba(255,255,255,.1) inset,0 12px 32px rgba(0,112,240,.55);transition:transform .15s,box-shadow .15s,background .15s;}
+.ls-begin:hover{transform:translateY(-2px);background:#1a80f5;box-shadow:0 16px 38px rgba(0,112,240,.65);}
+.ls-ghost{display:inline-flex;align-items:center;gap:8px;font:600 15.5px 'Space Grotesk',sans-serif;padding:16px 24px;border-radius:12px;color:#e2e8f0;text-decoration:none;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);transition:all .15s;}
+.ls-ghost:hover{background:rgba(255,255,255,.12);transform:translateY(-2px);}
+
+.ls-cards{max-width:820px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+.ls-card{background:#fff;color:#12161c;border:1px solid #d6e6f2;border-radius:18px;padding:1.7rem 1.4rem 1.5rem;text-align:center;box-shadow:0 18px 40px rgba(0,10,30,.35);display:flex;flex-direction:column;}
+.ls-icon{width:52px;height:52px;border-radius:14px;margin:0 auto 14px;display:flex;align-items:center;justify-content:center;color:#fff;background:linear-gradient(135deg,#0070F0,#46B1EF);box-shadow:0 10px 26px rgba(0,112,240,.4);}
+.ls-icon svg{width:26px;height:26px;}
+.ls-kicker{font:600 11px 'IBM Plex Mono',monospace;letter-spacing:1px;color:#4d8a1f;margin-bottom:6px;}
+.ls-card h3{font:700 20px 'Space Grotesk',sans-serif;color:#002855;margin:0 0 6px;}
+.ls-card p{font-size:14px;line-height:1.55;color:#48505c;margin:0 0 16px;}
+.ls-qr{display:flex;align-items:center;justify-content:space-between;gap:12px;text-align:left;background:#EEF6F9;border:1px solid #cfe2ef;border-radius:12px;padding:8px 14px 8px 8px;margin-bottom:14px;font:11.5px/1.5 'IBM Plex Mono',monospace;color:#48505c;}
+.ls-qr svg{width:72px;height:72px;border:1px solid #d6e6f2;border-radius:6px;padding:3px;background:#fff;flex:none;}
+.ls-num{display:inline-block;margin-top:4px;font:600 13.5px 'IBM Plex Mono',monospace;color:#002855;text-decoration:none;}
+.ls-num:hover{color:#0070F0;}
+.ls-btn{margin-top:auto;display:flex;align-items:center;justify-content:center;gap:8px;font:600 15.5px 'Space Grotesk',sans-serif;padding:13px 20px;border-radius:11px;color:#fff;text-decoration:none;background:#0070F0;box-shadow:0 10px 26px rgba(0,112,240,.35);transition:transform .15s,background .15s;}
+.ls-btn:hover{transform:translateY(-2px);background:#1a80f5;}
+.ls-btn svg{width:18px;height:18px;}
+.ls-coffee{background:#FFDD00;color:#000;box-shadow:0 10px 26px rgba(255,221,0,.3);}
+.ls-coffee:hover{background:#ffe433;}
+.ls-mail{display:block;margin-top:12px;font:12px 'IBM Plex Mono',monospace;color:#0070F0;text-decoration:none;}
+.ls-mail:hover{text-decoration:underline;}
+.ls-foot{text-align:center;font-size:12px;color:#7d9ab8;margin:2.2rem 0 0;}
+@media(max-width:720px){.ls-cards{grid-template-columns:1fr;}.ls-qr{display:none;}.ls-hero{padding-top:2.6rem;}}
+
+/* exam chrome in WGU blues */
+.examtop{background:linear-gradient(180deg,#002855,#001f44);}
+.examflagbar{background:#0070F0;}
+.examflagbtn{color:#fff;}
+.examflagbtn.flagged{background:#fff;color:#b5390b;}
+#examBottom{background:linear-gradient(180deg,#001f44,#002855);}
+.doc-btn,.qread-bar{background:linear-gradient(180deg,#0070F0,#005fd0);}
+.btn-primary{background:#0070F0;}
+.analysis h3{color:#0070F0;}
+.pm-mail{display:inline-flex;align-items:center;justify-content:center;gap:8px;margin-top:12px;font:600 13.5px 'IBM Plex Mono',monospace;color:#002855;text-decoration:none;padding:8px 14px;border-radius:9px;background:#EEF6F9;border:1px solid #cfe2ef;transition:background .15s,color .15s;align-self:center;}
+.pm-mail:hover{background:#dcebfd;color:#0070F0;}
+.pm-mail svg{width:17px;height:17px;color:#0070F0;flex:none;}
+.ls-cards{grid-template-columns:1fr;max-width:440px;}
+.ls-card .ls-btn{margin-top:0;}
+.ls-card .ls-btn + .ls-btn{margin-top:10px;}
+.ls-card .ls-qr + .ls-btn{margin-top:auto;}
+.mcq-stem{font-size:16px;line-height:1.7;color:var(--text);margin:0 0 18px;max-width:900px;font-weight:500;}
+.mcq-stem code,.mcq-text code{font-family:'IBM Plex Mono',monospace;font-size:12.5px;background:var(--panel-2);border:1px solid var(--border-soft);padding:1px 6px;border-radius:4px;}
+.mcq-list{border:1px solid var(--border-soft);max-width:900px;}
+.mcq-list .chk{font-size:14px;line-height:1.5;align-items:flex-start;}
+.mcq-list .chk input{margin-top:2px;}
+.mcq-letter{flex:none;width:24px;height:24px;border-radius:6px;background:#dcebfd;color:#002855;font:700 12.5px 'Space Grotesk',sans-serif;display:flex;align-items:center;justify-content:center;}
+.mcq-text{flex:1;min-width:0;}
+.mcq-list .chk.mcq-right{background:#e8f8ee;}
+.mcq-list .chk.mcq-wrong{background:#fdecec;}
+.section.mcq .analysis p{max-width:900px;}
+.sev-chip.chip-mcq{background:#dcebfd;color:#002855;border-color:#9fcdf2;}
+/* modes */
+.ls-modes{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:640px;margin:0 auto 16px;}
+.ls-mode{display:flex;gap:14px;align-items:flex-start;text-align:left;cursor:pointer;padding:18px 18px;border-radius:14px;color:#fff;
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.18);font-family:'Inter',sans-serif;transition:transform .15s,background .15s,border-color .15s;}
+.ls-mode:hover{transform:translateY(-2px);background:rgba(255,255,255,.11);border-color:rgba(70,177,239,.6);}
+.ls-mode-exam{background:#0070F0;border-color:#0070F0;box-shadow:0 12px 32px rgba(0,112,240,.5);}
+.ls-mode-exam:hover{background:#1a80f5;border-color:#1a80f5;}
+.ls-mode-ico{flex:none;width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.14);}
+.ls-mode-ico svg{width:21px;height:21px;}
+.ls-mode-txt b{display:block;font:700 17px 'Space Grotesk',sans-serif;margin-bottom:4px;}
+.ls-mode-txt span{font-size:13px;line-height:1.45;color:#d6e4f5;}
+@media(max-width:640px){.ls-modes{grid-template-columns:1fr;}}
+
+/* exam mode: never reveal */
+body.exam-mode .actions, body.exam-mode .analysis{display:none !important;}
+#finishBtn{display:none;}
+body.exam-mode #finishBtn.on-last{display:flex;background:#97E152;color:#001731;border-color:#97E152;}
+body.exam-mode #finishBtn:hover{background:#a9ea6c;}
+body.practice-mode #examTimerText{font-weight:600;}
+
+/* results */
+#resultsScreen{display:none;min-height:100vh;background:linear-gradient(180deg,#001731 0%,#002855 45%,#001f44 100%);color:#fff;padding:0 1.25rem 3rem;}
+.rs-inner{max-width:760px;margin:0 auto;padding:4rem 0 0;text-align:center;}
+#resultsScreen h1{font:700 clamp(30px,5vw,44px) 'Space Grotesk',sans-serif;margin:0 0 18px;}
+.rs-score{display:inline-flex;align-items:center;gap:18px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:18px;padding:18px 30px;margin-bottom:14px;}
+.rs-score b{font:700 56px 'Space Grotesk',sans-serif;line-height:1;}
+.rs-score span{font:700 14px 'IBM Plex Mono',monospace;letter-spacing:1px;padding:6px 12px;border-radius:8px;}
+.rs-score span.pass{background:#97E152;color:#001731;}
+.rs-score span.fail{background:#fde2e2;color:#8a1f24;}
+.rs-sub{color:#94a3b8;font-size:14px;margin:0 0 26px;}
+.rs-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;text-align:left;margin-bottom:18px;}
+.rs-dom{background:#fff;color:#12161c;border-radius:12px;padding:14px 16px;}
+.rs-dom-top{display:flex;justify-content:space-between;gap:10px;font:600 14px 'Space Grotesk',sans-serif;color:#002855;margin-bottom:8px;}
+.rs-bar{height:8px;border-radius:99px;background:#EEF6F9;overflow:hidden;margin-bottom:6px;}
+.rs-bar i{display:block;height:100%;background:linear-gradient(90deg,#0070F0,#46B1EF);border-radius:99px;}
+.rs-dom small{color:#48505c;font-size:12px;}
+.rs-note{color:#a9d8f6;font-size:13px;margin:0 0 20px;}
+.rs-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
+.rs-btns .ls-begin,.rs-btns .ls-ghost{font-size:15px;padding:13px 22px;cursor:pointer;font-family:'Space Grotesk',sans-serif;}
+@media(max-width:640px){.rs-grid{grid-template-columns:1fr;}}
+
+/* confirm modal */
+.cm-overlay{position:fixed;inset:0;background:rgba(0,10,30,.6);display:none;align-items:center;justify-content:center;z-index:500;padding:20px;}
+.cm-overlay.show{display:flex;}
+.cm-box{background:#fff;border-radius:14px;max-width:420px;width:100%;padding:22px 22px 18px;box-shadow:0 30px 70px rgba(0,0,0,.35);}
+.cm-box h3{margin:0 0 8px;font:700 19px 'Space Grotesk',sans-serif;color:#002855;}
+.cm-box p{margin:0 0 18px;color:#48505c;font-size:14px;line-height:1.55;}
+.cm-btns{display:flex;justify-content:flex-end;gap:10px;}
+.ls-cta .ls-ghost{width:100%;max-width:640px;justify-content:center;font-size:18px;padding:18px 28px;border-radius:14px;gap:10px;border-color:rgba(255,255,255,.28);background:rgba(255,255,255,.08);}
+.ls-cta .ls-ghost svg{width:20px;height:20px;}
+.ls-cta .ls-ghost:hover{background:rgba(255,255,255,.14);border-color:rgba(70,177,239,.7);}
+
+/* console PBQ */
+.con-feeds{display:flex;gap:12px;margin-bottom:14px;flex-wrap:wrap;}
+.con-feed{flex:1;min-width:220px;display:flex;align-items:center;justify-content:space-between;gap:10px;background:#fff;border:1.5px solid #2563eb;color:#1d4ed8;font:600 15px 'Space Grotesk',sans-serif;padding:12px 16px;border-radius:10px;cursor:pointer;transition:background .15s;}
+.con-feed:hover{background:#dbeafe;}
+.con-tabs{display:flex;gap:6px;}
+.con-tab{background:#bfdbfe;color:#1e3a8a;border:0;border-radius:9px 9px 0 0;padding:10px 22px;font:700 14px 'Space Grotesk',sans-serif;cursor:pointer;}
+.con-tab.active{background:#2563eb;color:#fff;}
+.con-term{background:#0b1220;border:3px solid #2563eb;border-radius:0 10px 10px 10px;padding:14px 16px;margin-bottom:18px;}
+.con-out{color:#e2e8f0;font:12.5px/1.55 'IBM Plex Mono',monospace;white-space:pre-wrap;margin:0;min-height:210px;max-height:330px;overflow:auto;}
+.con-inrow{display:flex;align-items:center;margin-top:6px;}
+.con-prompt{color:#7dd3fc;font:12.5px 'IBM Plex Mono',monospace;white-space:pre;}
+.con-input{flex:1;background:transparent;border:0;outline:0;color:#e2e8f0;font:12.5px 'IBM Plex Mono',monospace;caret-color:#7dd3fc;}
+.con-flabel{display:block;font:600 13.5px 'Space Grotesk',sans-serif;color:#002855;margin-bottom:6px;}
+.con-feed-row{margin-bottom:14px;max-width:520px;}
+.con-ans{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:6px;}
+.con-card{background:var(--panel,#fff);border:1px solid var(--border-soft,#e6ebf0);border-radius:12px;padding:14px 16px;}
+.con-card h4{margin:0 0 12px;font:700 15px 'Space Grotesk',sans-serif;color:#002855;}
+.con-field{margin-bottom:12px;}
+.con-field label{display:block;font-size:12.5px;color:#48505c;margin-bottom:5px;}
+.con-selwrap select.correct{border-color:#16a34a;background:#e8f8ee;}
+.con-selwrap select.wrong{border-color:#dc2626;background:#fdecec;}
+.con-modal{position:fixed;inset:0;background:rgba(0,10,30,.6);display:flex;align-items:center;justify-content:center;z-index:600;padding:20px;}
+.con-modal-box{background:#fff;border-radius:14px;max-width:760px;width:100%;max-height:85vh;overflow:auto;box-shadow:0 30px 70px rgba(0,0,0,.4);}
+.con-modal-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 20px;border-bottom:1px solid var(--border-soft,#e6ebf0);position:sticky;top:0;background:#fff;}
+.con-modal-head h3{margin:0;font:700 16px 'Space Grotesk',sans-serif;color:#002855;}
+.con-modal-x{border:0;background:#eef2f7;border-radius:8px;width:30px;height:30px;cursor:pointer;font-size:14px;}
+.con-feed-tbl{width:100%;border-collapse:collapse;font-size:13px;}
+.con-feed-tbl th{background:#002855;color:#fff;text-align:left;padding:9px 14px;font:600 12.5px 'Space Grotesk',sans-serif;}
+.con-feed-tbl td{padding:8px 14px;border-bottom:1px solid #eef2f7;font-family:'IBM Plex Mono',monospace;font-size:12px;}
+@media(max-width:700px){.con-ans{grid-template-columns:1fr;}.con-feed{min-width:0;}}
+
+.rbac-block{margin:0 0 18px;}
+.rbac-head{font:600 15px 'Space Grotesk',sans-serif;color:#002855;margin:0 0 10px;}
+.rbac-note{margin:0 0 12px;padding:0 20px;color:#48505c;font-size:13.5px;line-height:1.55;}
+
+.rbac-icons{display:flex;flex-wrap:wrap;gap:20px;justify-content:center;margin:6px 0 26px;}
+.rbac-ic-card{background:transparent;border:0;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:10px;width:150px;font-family:'Space Grotesk',sans-serif;}
+.rbac-ic-circ{width:94px;height:94px;border-radius:50%;background:radial-gradient(circle at 50% 38%, #eef6fc 0%, #d7e8f6 100%);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 16px rgba(0,40,85,.12);border:1px solid #cfe2ef;transition:transform .15s, box-shadow .15s;}
+.rbac-ic-card:hover .rbac-ic-circ{transform:translateY(-3px);box-shadow:0 12px 26px rgba(0,112,240,.25);}
+.rbac-ic-circ svg{width:46px;height:46px;color:#0b5aa8;}
+.rbac-ic-label{font-weight:600;font-size:13.5px;color:#002855;text-align:center;line-height:1.3;}
+
+.eml{max-width:760px;border:1px solid var(--border,#d7dee6);border-radius:12px;overflow:hidden;margin-bottom:20px;box-shadow:0 8px 22px rgba(0,10,30,.08);background:#fff;}
+.eml-top{background:#0070F0;height:38px;display:flex;align-items:center;justify-content:flex-end;gap:16px;padding:0 18px;color:#fff;font-size:15px;}
+.eml-row{display:flex;border-bottom:1px solid #eef2f7;}
+.eml-row .k{width:100px;flex:none;background:#f7f9fb;padding:10px 14px;font:600 13px 'Space Grotesk',sans-serif;color:#48505c;}
+.eml-row .v{padding:10px 14px;font-size:13px;color:#12161c;font-family:'IBM Plex Mono',monospace;word-break:break-all;}
+.eml-body{padding:16px;font-size:14px;line-height:1.6;color:#12161c;}
+.eml-body p{margin:0 0 12px;}
+.eml-sig{padding:0 16px 18px;font-size:14px;line-height:1.55;color:#12161c;}
+.eml-ans{max-width:620px;border:1px solid var(--border-soft,#e6ebf0);border-radius:12px;overflow:hidden;}
+.eml-ans table{width:100%;border-collapse:collapse;}
+.eml-ans th{background:#002855;color:#fff;text-align:left;padding:10px 16px;font:600 13px 'Space Grotesk',sans-serif;}
+.eml-ans td{padding:11px 16px;border-bottom:1px solid #eef2f7;font-size:14px;vertical-align:middle;}
+.eml-ans td:first-child{font-weight:600;color:#002855;width:150px;}
+.eml-selwrap select.correct{border-color:#16a34a;background:#e8f8ee;}
+.eml-selwrap select.wrong{border-color:#dc2626;background:#fdecec;}
+
+.eml2{max-width:940px;}
+.eml2-topbar{height:38px;background:#0070F0;border-radius:10px 10px 0 0;margin-right:266px;display:flex;align-items:center;justify-content:flex-end;gap:16px;padding:0 18px;color:#fff;font-size:15px;}
+.eml2-row{display:flex;gap:16px;align-items:center;}
+.eml2-cell{flex:1;min-width:0;background:#fff;border-left:1px solid var(--border,#d7dee6);border-right:1px solid var(--border,#d7dee6);border-bottom:1px solid #eef2f7;}
+.eml2-row:last-child .eml2-cell{border-bottom:1px solid var(--border,#d7dee6);border-radius:0 0 10px 10px;}
+.eml2-cell.body{padding:16px;font-size:14px;line-height:1.6;}
+.eml2-cell.body p{margin:0 0 12px;}
+.eml2-cell.body p:last-child{margin-bottom:0;}
+.eml2-cell.sig{padding:12px 16px 16px;font-size:14px;line-height:1.55;}
+.eml2-ctrl{width:250px;flex:none;}
+.eml2-ctrl .cell-select{width:100%;}
+@media(max-width:760px){.eml2-topbar{margin-right:0;}.eml2-row{flex-direction:column;align-items:stretch;gap:8px;}.eml2-ctrl{width:100%;margin-bottom:6px;}}
+
+.rbac2{display:flex;gap:28px;align-items:flex-start;margin-bottom:10px;}
+.rbac2-ev{flex:0 0 300px;}
+.rbac2-ev .rbac-icons{margin:0;gap:16px;}
+.rbac2-ev .rbac-ic-card{width:132px;}
+.rbac2-ev .rbac-ic-circ{width:82px;height:82px;}
+.rbac2-ev .rbac-ic-circ svg{width:40px;height:40px;}
+.rbac2-panel{flex:1;min-width:0;background:#f1f8fd;border:1px solid #d7e8f6;border-radius:16px;padding:20px 24px;}
+.rbac2-panel .rbac-block:last-child{margin-bottom:0;}
+@media(max-width:820px){.rbac2{flex-direction:column;}.rbac2-ev{flex:none;width:100%;}}
+  /* Question 2: match the supplied blue evidence-and-answer reference */
+  .section:has(.rbac2){max-width:900px;margin-left:auto;margin-right:auto;padding:20px 18px;background:linear-gradient(135deg,#dff5fa 0%,#c7eaf4 48%,#e8f7fb 100%);border:1px solid #c4e5ef;border-radius:14px;}
+  .section:has(.rbac2) > h2,.section:has(.rbac2) > .sub{display:none;}
+  .rbac2{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(320px,.92fr);gap:18px;align-items:stretch;max-width:860px;margin:0 auto;}
+  .rbac2-ev{width:100%;min-width:0;}
+  .rbac2-ev .rbac-icons{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 10px;justify-items:center;align-items:start;margin:4px 0 0;}
+  .rbac2-ev .rbac-ic-card{width:100%;max-width:190px;gap:9px;padding:0;border:0;background:transparent;}
+  .rbac2-ev .rbac-ic-card:last-child{grid-column:1 / -1;justify-self:center;}
+  .rbac2-ev .rbac-ic-circ{width:min(100%,174px);height:auto;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 50% 42%,#d9edf3 0%,#c3e1eb 72%,#b7dbe7 100%);border:8px solid rgba(255,255,255,.72);box-shadow:0 2px 7px rgba(0,76,115,.08);display:flex;align-items:center;justify-content:center;}
+  .rbac2-ev .rbac-ic-circ svg{width:68%;height:68%;color:#0871a5;stroke-width:2.1;}
+  .rbac2-ev .rbac-ic-label{font:600 13px 'Space Grotesk',sans-serif;color:#075985;text-align:center;}
+  .rbac2-panel{width:100%;min-width:0;background:rgba(245,251,253,.82);border:1px solid rgba(255,255,255,.9);border-radius:26px;padding:22px 20px;box-shadow:0 2px 8px rgba(0,76,115,.04);}
+  .rbac2-panel .rbac-block{margin:0 0 22px;}
+  .rbac2-panel .rbac-head{font:700 15px/1.4 'Space Grotesk',sans-serif;color:#075985;margin:0 0 10px;}
+  .rbac2-panel .chk-list{display:grid;grid-template-columns:1fr 1fr;gap:3px 10px;border-radius:0;overflow:visible;}
+  .rbac2-panel .rbac-block-auth .chk-list{grid-template-columns:1fr;}
+  .rbac2-panel .chk{padding:5px 2px;background:transparent;border:0;gap:7px;color:#31566c;font-size:13px;line-height:1.35;}
+  .rbac2-panel .chk:hover{background:rgba(255,255,255,.65);}
+  .rbac2-panel .chk input{width:14px;height:14px;accent-color:#0877b9;}
+  @media(max-width:720px){.section:has(.rbac2){padding:14px 12px;}.rbac2{grid-template-columns:1fr;}.rbac2-ev .rbac-ic-circ{width:min(100%,140px);}.rbac2-panel{border-radius:18px;padding:18px;}}
+  @media(max-width:420px){.rbac2-ev .rbac-icons{gap:14px 6px;}.rbac2-ev .rbac-ic-card{max-width:150px;}.rbac2-panel .rbac2-panel .chk-list{grid-template-columns:1fr 1fr;}}
+</style>
+<style id="dark-reader-style" type="text/css">@media screen {
+
+}</style></head>
+<body>
+
+<div id="landingScreen">
+  <div class="ls-hero">
+    <a class="ls-brand" href="https://wguexams.github.io/">
+      <span class="ls-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/><path d="M9 12l2 2 4-4"/></svg></span>
+      WGU Exams
+    </a>
+    <div><span class="ls-pill"><span class="ls-dot"></span>SECURITY+ · SY0-801 · V8</span></div>
+    <h1>Security+ <span class="ls-hl">Practice Exam</span></h1>
+    <p class="ls-sub">Hands-on performance-based questions for the new Security+ V8 (SY0-801) — including the new AI security risks objective. A multiple-choice bank is on the way.</p>
+
+    <div class="ls-stats">
+      <div class="ls-stat"><b id="pbqCount">2</b><span>PBQs</span></div>
+      <div class="ls-stat" id="mcqStat"><b id="mcqCount">0</b><span>multiple choice</span></div>
+      <div class="ls-stat"><b>90</b><span>minute timer</span></div>
+      <div class="ls-stat"><b>Free</b><span>no sign-up</span></div>
+    </div>
+
+    <div class="ls-modes">
+      <button class="ls-mode" id="practiceBtn" type="button">
+        <span class="ls-mode-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg></span>
+        <span class="ls-mode-txt"><b>Practice mode</b><span>Check each answer and read the explanation as you go. No timer.</span></span>
+      </button>
+      <button class="ls-mode ls-mode-exam" id="beginBtn" type="button">
+        <span class="ls-mode-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5M9 2h6"/></svg></span>
+        <span class="ls-mode-txt"><b>Exam mode</b><span>90-minute timer, shuffled questions, no answers shown. Score at the end.</span></span>
+      </button>
+    </div>
+
+    <div class="ls-cta">
+      <a class="ls-ghost" href="https://wguexams.github.io/">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 6l-6 6 6 6"/></svg>
+        All courses
+      </a>
+    </div>
+  </div>
+
+  <div class="ls-cards">
+    <div class="ls-card">
+      <div class="ls-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1112 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 01-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.2-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.4-.2z"/></svg></div>
+      <span class="ls-kicker">★ PREMIUM SUPPORT</span>
+      <h3>Need more help passing?</h3>
+      <p>I can help you pass your exam in one day.</p>
+      <div class="ls-qr"><svg viewBox="0 0 27 27" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges" role="img" aria-label="WhatsApp QR code"><rect width="27" height="27" fill="#fff"/><path fill="#000" d="M1,1H2V2H1zM2,1H3V2H2zM3,1H4V2H3zM4,1H5V2H4zM5,1H6V2H5zM6,1H7V2H6zM7,1H8V2H7zM10,1H11V2H10zM11,1H12V2H11zM12,1H13V2H12zM13,1H14V2H13zM14,1H15V2H14zM17,1H18V2H17zM19,1H20V2H19zM20,1H21V2H20zM21,1H22V2H21zM22,1H23V2H22zM23,1H24V2H23zM24,1H25V2H24zM25,1H26V2H25zM1,2H2V3H1zM7,2H8V3H7zM9,2H10V3H9zM13,2H14V3H13zM15,2H16V3H15zM19,2H20V3H19zM25,2H26V3H25zM1,3H2V4H1zM3,3H4V4H3zM4,3H5V4H4zM5,3H6V4H5zM7,3H8V4H7zM9,3H10V4H9zM10,3H11V4H10zM11,3H12V4H11zM12,3H13V4H12zM15,3H16V4H15zM16,3H17V4H16zM17,3H18V4H17zM19,3H20V4H19zM21,3H22V4H21zM22,3H23V4H22zM23,3H24V4H23zM25,3H26V4H25zM1,4H2V5H1zM3,4H4V5H3zM4,4H5V5H4zM5,4H6V5H5zM7,4H8V5H7zM9,4H10V5H9zM10,4H11V5H10zM12,4H13V5H12zM13,4H14V5H13zM14,4H15V5H14zM15,4H16V5H15zM19,4H20V5H19zM21,4H22V5H21zM22,4H23V5H22zM23,4H24V5H23zM25,4H26V5H25zM1,5H2V6H1zM3,5H4V6H3zM4,5H5V6H4zM5,5H6V6H5zM7,5H8V6H7zM12,5H13V6H12zM15,5H16V6H15zM19,5H20V6H19zM21,5H22V6H21zM22,5H23V6H22zM23,5H24V6H23zM25,5H26V6H25zM1,6H2V7H1zM7,6H8V7H7zM15,6H16V7H15zM17,6H18V7H17zM19,6H20V7H19zM25,6H26V7H25zM1,7H2V8H1zM2,7H3V8H2zM3,7H4V8H3zM4,7H5V8H4zM5,7H6V8H5zM6,7H7V8H6zM7,7H8V8H7zM9,7H10V8H9zM11,7H12V8H11zM13,7H14V8H13zM15,7H16V8H15zM17,7H18V8H17zM19,7H20V8H19zM20,7H21V8H20zM21,7H22V8H21zM22,7H23V8H22zM23,7H24V8H23zM24,7H25V8H24zM25,7H26V8H25zM9,8H10V9H9zM11,8H12V9H11zM12,8H13V9H12zM13,8H14V9H13zM1,9H2V10H1zM7,9H8V10H7zM9,9H10V10H9zM11,9H12V10H11zM12,9H13V10H12zM13,9H14V10H13zM14,9H15V10H14zM17,9H18V10H17zM18,9H19V10H18zM19,9H20V10H19zM22,9H23V10H22zM23,9H24V10H23zM24,9H25V10H24zM1,10H2V11H1zM4,10H5V11H4zM5,10H6V11H5zM9,10H10V11H9zM12,10H13V11H12zM16,10H17V11H16zM17,10H18V11H17zM20,10H21V11H20zM21,10H22V11H21zM22,10H23V11H22zM23,10H24V11H23zM24,10H25V11H24zM2,11H3V12H2zM3,11H4V12H3zM4,11H5V12H4zM7,11H8V12H7zM9,11H10V12H9zM11,11H12V12H11zM12,11H13V12H12zM13,11H14V12H13zM16,11H17V12H16zM17,11H18V12H17zM19,11H20V12H19zM20,11H21V12H20zM21,11H22V12H21zM22,11H23V12H22zM24,11H25V12H24zM25,11H26V12H25zM2,12H3V13H2zM4,12H5V13H4zM6,12H7V13H6zM18,12H19V13H18zM19,12H20V13H19zM20,12H21V13H20zM22,12H23V13H22zM25,12H26V13H25zM2,13H3V14H2zM3,13H4V14H3zM5,13H6V14H5zM6,13H7V14H6zM7,13H8V14H7zM9,13H10V14H9zM10,13H11V14H10zM11,13H12V14H11zM12,13H13V14H12zM13,13H14V14H13zM15,13H16V14H15zM16,13H17V14H16zM18,13H19V14H18zM19,13H20V14H19zM25,13H26V14H25zM1,14H2V15H1zM2,14H3V15H2zM3,14H4V15H3zM4,14H5V15H4zM6,14H7V15H6zM10,14H11V15H10zM14,14H15V15H14zM15,14H16V15H15zM16,14H17V15H16zM20,14H21V15H20zM24,14H25V15H24zM1,15H2V16H1zM4,15H5V16H4zM7,15H8V16H7zM8,15H9V16H8zM9,15H10V16H9zM10,15H11V16H10zM11,15H12V16H11zM12,15H13V16H12zM13,15H14V16H13zM16,15H17V16H16zM17,15H18V16H17zM18,15H19V16H18zM20,15H21V16H20zM21,15H22V16H21zM22,15H23V16H22zM24,15H25V16H24zM25,15H26V16H25zM1,16H2V17H1zM3,16H4V17H3zM5,16H6V17H5zM8,16H9V17H8zM10,16H11V17H10zM12,16H13V17H12zM16,16H17V17H16zM20,16H21V17H20zM22,16H23V17H22zM23,16H24V17H23zM25,16H26V17H25zM1,17H2V18H1zM3,17H4V18H3zM4,17H5V18H4zM5,17H6V18H5zM6,17H7V18H6zM7,17H8V18H7zM8,17H9V18H8zM9,17H10V18H9zM12,17H13V18H12zM13,17H14V18H13zM14,17H15V18H14zM17,17H18V18H17zM18,17H19V18H18zM19,17H20V18H19zM20,17H21V18H20zM21,17H22V18H21zM23,17H24V18H23zM9,18H10V19H9zM10,18H11V19H10zM13,18H14V19H13zM15,18H16V19H15zM17,18H18V19H17zM21,18H22V19H21zM1,19H2V20H1zM2,19H3V20H2zM3,19H4V20H3zM4,19H5V20H4zM5,19H6V20H5zM6,19H7V20H6zM7,19H8V20H7zM10,19H11V20H10zM12,19H13V20H12zM17,19H18V20H17zM19,19H20V20H19zM21,19H22V20H21zM25,19H26V20H25zM1,20H2V21H1zM7,20H8V21H7zM10,20H11V21H10zM13,20H14V21H13zM17,20H18V21H17zM21,20H22V21H21zM24,20H25V21H24zM25,20H26V21H25zM1,21H2V22H1zM3,21H4V22H3zM4,21H5V22H4zM5,21H6V22H5zM7,21H8V22H7zM10,21H11V22H10zM14,21H15V22H14zM16,21H17V22H16zM17,21H18V22H17zM18,21H19V22H18zM19,21H20V22H19zM20,21H21V22H20zM21,21H22V22H21zM23,21H24V22H23zM1,22H2V23H1zM3,22H4V23H3zM4,22H5V23H4zM5,22H6V23H5zM7,22H8V23H7zM10,22H11V23H10zM12,22H13V23H12zM13,22H14V23H13zM16,22H17V23H16zM17,22H18V23H17zM18,22H19V23H18zM19,22H20V23H19zM24,22H25V23H24zM25,22H26V23H25zM1,23H2V24H1zM3,23H4V24H3zM4,23H5V24H4zM5,23H6V24H5zM7,23H8V24H7zM14,23H15V24H14zM22,23H23V24H22zM23,23H24V24H23zM25,23H26V24H25zM1,24H2V25H1zM7,24H8V25H7zM10,24H11V25H10zM15,24H16V25H15zM17,24H18V25H17zM18,24H19V25H18zM20,24H21V25H20zM21,24H22V25H21zM25,24H26V25H25zM1,25H2V26H1zM2,25H3V26H2zM3,25H4V26H3zM4,25H5V26H4zM5,25H6V26H5zM6,25H7V26H6zM7,25H8V26H7zM9,25H10V26H9zM10,25H11V26H10zM12,25H13V26H12zM15,25H16V26H15zM17,25H18V26H17zM19,25H20V26H19zM22,25H23V26H22zM25,25H26V26H25z" id="qr-path" fill="#000000" fill-opacity="1" fill-rule="nonzero" stroke="none"/></svg><span>Scan to chat on WhatsApp<br><a class="ls-num" href="https://wa.me/19454096351" target="_blank" rel="noopener">+1 (945) 409-6351</a></span></div>
+      <a class="ls-btn" id="waBtn" href="https://wa.me/19454096351" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1112 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 01-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.2-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.4-.2z"/></svg> Get premium support</a>
+      <a class="ls-btn" id="pmMail" href="mailto:alexbestwgu@gmail.com?subject=WGU%20Exams%20-%20Premium%20Support"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg> alexbestwgu@gmail.com</a>
+      <a class="ls-btn" id="coffeeBtn" href="https://buymeacoffee.com/playmaker777" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8h1a4 4 0 010 8h-1"/><path d="M3 8h14v9a4 4 0 01-4 4H7a4 4 0 01-4-4z"/><path d="M6 2v2M10 2v2M14 2v2"/></svg> Buy me a coffee</a>
+    </div>
+  </div>
+
+  <p class="ls-foot">Independent study resource. Not affiliated with or endorsed by Western Governors University or CompTIA.</p>
+</div>
+
+<div id="examChrome">
+  <div class="examtop">
+    <button class="examtop-left" id="homeBtn" type="button">Security+ Practice Exam</button>
+    <div class="examtop-right">
+      <div class="examtop-row">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3.5 2"></path></svg>
+        <span id="examTimerText">Time Remaining 1:30:00</span>
+      </div>
+      <div class="examtop-row">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"></rect><path d="M3 9h18"></path></svg>
+        <span id="examCounterText">1 of 6</span>
+      </div>
+    </div>
+  </div>
+  <div class="examflagbar">
+    <button class="examflagbtn" id="examFlagBtn" type="button">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 3v18M5 4h11l-2.5 4L16 12H5"></path></svg>
+      Flag for Review
+    </button>
+  </div>
+</div>
+
+<div id="examScroll">
+  <div class="wrap">
+
+    <div class="brief">
+      <h1 id="briefTitle">Question title <span class="sev-chip" id="sevChip">KIND</span></h1>
+      <div class="doc-btns">
+        <button class="doc-btn qread-btn" id="qreadBtn" type="button">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 19.5A2.5 2.5 0 0 0 6.5 22H20V2H6.5A2.5 2.5 0 0 0 4 4.5v15Z"></path></svg>
+          Read Question
+        </button>
+      </div>
+    </div>
+
+    <div class="qread-overlay" id="qreadOverlay">
+      <div class="qread-modal">
+        <div class="qread-bar">
+          <span class="title"><span class="dot"></span>Question</span>
+          <button class="qx-close" id="qreadClose" type="button">✕</button>
+        </div>
+        <div class="qread-body" id="qreadBody"></div>
+      </div>
+    </div>
+
+    <div id="stage"></div>
+
+  </div>
+</div>
+
+<div id="resultsScreen">
+  <div class="rs-inner">
+    <span class="ls-pill"><span class="ls-dot"></span>EXAM COMPLETE</span>
+    <h1 id="rsTitle">Your score</h1>
+    <div class="rs-score"><b id="rsPct">0%</b><span id="rsVerdict">-</span></div>
+    <p class="rs-sub" id="rsSub"></p>
+    <div class="rs-grid" id="rsDomains"></div>
+    <p class="rs-note">Exam mode doesn't reveal answers. To see explanations, study the same questions in Practice mode.</p>
+    <div class="rs-btns">
+      <button class="ls-begin" id="retakeBtn" type="button">Retake exam (new order)</button>
+      <button class="ls-ghost" id="toPracticeBtn" type="button">Practice mode</button>
+      <button class="ls-ghost" id="rsHomeBtn" type="button">Back to start</button>
+    </div>
+  </div>
+</div>
+
+<div class="cm-overlay" id="cmOverlay">
+  <div class="cm-box">
+    <h3 id="cmTitle">Finish exam?</h3>
+    <p id="cmText"></p>
+    <div class="cm-btns">
+      <button class="btn btn-ghost" id="cmCancel" type="button">Keep working</button>
+      <button class="btn btn-primary" id="cmOk" type="button">Finish exam</button>
+    </div>
+  </div>
+</div>
+
+<div id="examBottom">
+  <button class="prevnext-btn" id="menuBtn" type="button" style="margin-right:auto;">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 11l9-8 9 8M5 10v10h5v-6h4v6h5V10"></path></svg>
+    Menu
+  </button>
+  <button class="prevnext-btn" id="prevBtn" type="button">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 6l-6 6 6 6"></path></svg>
+    Previous
+  </button>
+  <button class="prevnext-btn finish-btn" id="finishBtn" type="button">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12l5 5L20 7"></path></svg>
+    Finish Exam
+  </button>
+  <button class="prevnext-btn" id="nextBtn" type="button">
+    Next
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 6l6 6-6 6"></path></svg>
+  </button>
+</div>
+
+
+<script>
+/* ============================================================
+   PenTest+ PBQs — original content (PT0-003 skills)
+   Recognition / analysis / remediation style (no attack playbooks)
+============================================================ */
+/* ============================================================
+   Security+ SY0-801 PBQs — original content
+============================================================ */
+let questions = [
+  {
+    type: "console",
+    kind: "Performance-based question",
+    title: "Threat intelligence vs. server activity",
+    scenario: [
+      "You are a security operations analyst for a regional hospital network. Your job is to compare current, high-fidelity threat-intelligence against activity on the patient-portal server and the electronic health record (EHR) server.",
+      "<strong>INSTRUCTIONS</strong>",
+      "Open each threat feed, then use each server console to review its network connections and running processes. Type <code>help</code> in a console to see the available commands.",
+      "Decide which feed to trust, find the one process on each server that is beaconing to a bad host, and complete the answer area. Remediate by stopping only that process and removing its file.",
+      "To return to the initial state, click the <strong>Reset</strong> button."
+    ],
+    feeds: [
+      { title: "Current High-Fidelity IOC Feed — Today",
+        cols: ["Source IP", "Service", "Confidence", "Attack Frequency", "Industry Vertical"],
+        rows: [
+          ["203.0.113.66", "HTTPS", "High", "High", "Healthcare"],
+          ["203.0.113.66", "MSSQL", "High", "Medium", "Healthcare"],
+          ["198.51.100.7", "HTTPS", "Medium", "Low", "Retail"],
+          ["192.0.2.40", "SSH", "Low", "Low", "Healthcare"],
+          ["203.0.113.12", "DNS", "Low", "Medium", "Education"],
+          ["198.51.100.90", "HTTPS", "High", "Low", "Finance"]
+        ] },
+      { title: "Historical IOC Feed — Last Quarter (unverified)",
+        cols: ["Source IP", "Service", "Confidence", "Attack Frequency", "Verification"],
+        rows: [
+          ["147.68.169.52", "HTTPS", "Medium", "High", "Unverified"],
+          ["53.29.47.46", "HTTPS", "Medium", "High", "Unverified"],
+          ["76.17.89.65", "MSSQL", "High", "Low", "Unverified"],
+          ["83.67.47.57", "SFTP", "Low", "Medium", "Unverified"],
+          ["24.64.19.25", "DNS", "High", "Medium", "Unverified"],
+          ["99.30.17.99", "RDP", "Low", "High", "Unverified"]
+        ] }
+    ],
+    answerFeed: { key: "feed", label: "Primary threat-intelligence feed to act on:",
+      options: ["Current High-Fidelity IOC Feed (today)", "Historical IOC Feed (last quarter, unverified)"] },
+    servers: {
+      portal: {
+        label: "Portal Server", prompt: "[root@portal01 ~]# ", host: "portal01 (10.30.1.10, DMZ)",
+        out: {
+          help: "Available commands:\n  help                          Display available commands\n  ss -tunap                     Display network connections and processes\n  ps -ef                        Display running processes\n  ps -p PID -o pid,user,args    Inspect a specific process\n  readlink /proc/PID/exe        Identify a process executable\n  ls -l FILE                    Display file information\n  sha256sum FILE                Calculate a file hash\n  kill PID                      Terminate a process\n  rm FILE                       Remove a file\n  clear                         Clear the screen",
+          ss: "State  Local Address:Port    Peer Address:Port     Process\nESTAB  10.30.1.10:443        203.0.113.8:52140     users:((\"nginx\",pid=901))\nESTAB  10.30.1.10:22         10.30.9.15:55010      users:((\"sshd\",pid=1150))\nESTAB  10.30.1.10:49222      10.30.5.10:443        users:((\"backup-agent\",pid=1030))\nESTAB  10.30.1.10:51002      203.0.113.66:443      users:((\"portalsync\",pid=2571))",
+          ps: "UID        PID  PPID  CMD\nroot       901     1  /usr/sbin/nginx\nroot      1150     1  /usr/sbin/sshd\nbackup    1030     1  /usr/local/bin/backup-agent\nwww-data  2571     1  /tmp/.cache/portalsync\nroot      1200     1  /usr/sbin/rsyslogd"
+        },
+        procs: { "901": "www root", "1150": "root", "1030": "backup", "2571": "www-data", "1200": "root" },
+        exe: { "901": "/usr/sbin/nginx", "1150": "/usr/sbin/sshd", "1030": "/usr/local/bin/backup-agent", "2571": "/tmp/.cache/portalsync", "1200": "/usr/sbin/rsyslogd" },
+        procuser: { "901": "root", "1150": "root", "1030": "backup", "2571": "www-data", "1200": "root" },
+        files: {
+          "/tmp/.cache/portalsync": { ls: "-rwxr-xr-x 1 www-data www-data 284512 Nov 21 02:14 /tmp/.cache/portalsync", sha: "b4d2c7e1f09a3e5c8821ab44e0f6d9a7c3b21e55d4f08a9617 be33c2a1d5f0e9" },
+          "/usr/sbin/nginx": { ls: "-rwxr-xr-x 1 root root 1203400 Oct 02 09:00 /usr/sbin/nginx", sha: "11aa22bb33cc44dd55ee66ff7788990011223344556677889900aabbccddeeff" }
+        },
+        procField: { key: "portalProc", label: "Malicious process on the Portal Server:",
+          options: ["nginx (PID 901)", "sshd (PID 1150)", "backup-agent (PID 1030)", "portalsync (PID 2571)", "rsyslogd (PID 1200)"] },
+        fileField: { key: "portalFile", label: "Associated executable to remove:",
+          options: ["/usr/sbin/nginx", "/usr/local/bin/backup-agent", "/tmp/.cache/portalsync", "/usr/sbin/rsyslogd", "/usr/sbin/sshd"] },
+        remediation: [["kill 2571", "[process 2571 terminated]"], ["rm /tmp/.cache/portalsync", "removed '/tmp/.cache/portalsync'"]]
+      },
+      ehr: {
+        label: "EHR Server", prompt: "[root@ehr01 ~]# ", host: "ehr01 (10.30.2.10, internal)",
+        out: {
+          help: "Available commands:\n  help                          Display available commands\n  ss -tunap                     Display network connections and processes\n  ps -ef                        Display running processes\n  ps -p PID -o pid,user,args    Inspect a specific process\n  readlink /proc/PID/exe        Identify a process executable\n  ls -l FILE                    Display file information\n  sha256sum FILE                Calculate a file hash\n  kill PID                      Terminate a process\n  rm FILE                       Remove a file\n  clear                         Clear the screen",
+          ss: "State  Local Address:Port    Peer Address:Port     Process\nESTAB  10.30.2.10:8443       10.30.9.21:53120      users:((\"java\",pid=1360))\nESTAB  10.30.2.10:50211      10.30.2.40:1433       users:((\"ehr-service\",pid=1455))\nESTAB  10.30.2.10:22         10.30.9.15:57011      users:((\"sshd\",pid=1245))\nESTAB  10.30.2.10:51460      203.0.113.66:1433     users:((\"ehrupd\",pid=3288))",
+          ps: "UID    PID  PPID  CMD\nroot  1245     1  /usr/sbin/sshd\nehr   1360     1  /usr/bin/java\nehr   1455     1  /opt/ehr/bin/ehr-service\nehr   3288     1  /var/tmp/.ehr/ehrupd\nroot  3300     1  /usr/sbin/rsyslogd"
+        },
+        procuser: { "1245": "root", "1360": "ehr", "1455": "ehr", "3288": "ehr", "3300": "root" },
+        exe: { "1245": "/usr/sbin/sshd", "1360": "/usr/bin/java", "1455": "/opt/ehr/bin/ehr-service", "3288": "/var/tmp/.ehr/ehrupd", "3300": "/usr/sbin/rsyslogd" },
+        files: {
+          "/var/tmp/.ehr/ehrupd": { ls: "-rwxr-xr-x 1 ehr ehr 192880 Nov 21 02:41 /var/tmp/.ehr/ehrupd", sha: "a1b2c3d4e5f60718293a4b5c6d7e8f90112233445566778899aabbccddeeff00" },
+          "/usr/bin/java": { ls: "-rwxr-xr-x 1 root root 9800 Sep 15 11:00 /usr/bin/java", sha: "99887766554433221100ffeeddccbbaa99887766554433221100ffeeddccbbaa" }
+        },
+        procField: { key: "ehrProc", label: "Malicious process on the EHR Server:",
+          options: ["sshd (PID 1245)", "java (PID 1360)", "ehr-service (PID 1455)", "ehrupd (PID 3288)", "rsyslogd (PID 3300)"] },
+        fileField: { key: "ehrFile", label: "Associated executable to remove:",
+          options: ["/usr/bin/java", "/opt/ehr/bin/ehr-service", "/var/tmp/.ehr/ehrupd", "/usr/sbin/rsyslogd", "/usr/sbin/sshd"] },
+        remediation: [["kill 3288", "[process 3288 terminated]"], ["rm /var/tmp/.ehr/ehrupd", "removed '/var/tmp/.ehr/ehrupd'"]]
+      }
+    },
+    answer: { feed: "Current High-Fidelity IOC Feed (today)", portalProc: "portalsync (PID 2571)", portalFile: "/tmp/.cache/portalsync", ehrProc: "ehrupd (PID 3288)", ehrFile: "/var/tmp/.ehr/ehrupd" },
+    explain: `
+      <h3>Which feed to trust</h3>
+      <ul>
+        <li>Act on the <strong>current high-fidelity feed</strong>. The historical feed is last quarter's and is marked <em>unverified</em>, so it is not reliable for action today. The current feed lists <code>203.0.113.66</code> with <strong>High</strong> confidence against Healthcare, over both HTTPS and MSSQL.</li>
+      </ul>
+      <h3>Portal Server</h3>
+      <ul>
+        <li><code>ss -tunap</code> shows <strong>portalsync (PID 2571)</strong> connected to <code>203.0.113.66:443</code> — the exact bad host from the feed. Its executable is <code>/tmp/.cache/portalsync</code> (a hidden path in /tmp, never where a real service lives, and not in the approved inventory).</li>
+        <li>nginx, sshd, backup-agent and rsyslogd all talk to expected internal or client addresses — leave them running.</li>
+        <li>Remediate: <code>kill 2571</code> then <code>rm /tmp/.cache/portalsync</code>.</li>
+      </ul>
+      <h3>EHR Server</h3>
+      <ul>
+        <li><code>ss -tunap</code> shows <strong>ehrupd (PID 3288)</strong> connected to <code>203.0.113.66:1433</code>, matching the feed's MSSQL indicator. Its executable is <code>/var/tmp/.ehr/ehrupd</code>, another hidden temp path.</li>
+        <li>java, ehr-service and sshd reach only internal hosts — leave them running.</li>
+        <li>Remediate: <code>kill 3288</code> then <code>rm /var/tmp/.ehr/ehrupd</code>.</li>
+      </ul>
+      <p>Stopping only the beaconing process and removing only its file follows the instruction to remediate without interrupting legitimate services.</p>`
+  }
+,
+  {
+    type: "rbac",
+    kind: "Performance-based question",
+    title: "Password security and authentication",
+    scenario: [
+      "A security team is reviewing employee account practices after discovering that company information has appeared on an unauthorized site.",
+      "<strong>INSTRUCTIONS</strong>",
+      "Open each evidence item to review the directory contents, the restricted compensation report, and the user password data.",
+      "Identify the weak password practices and select the authentication option requested in the answer panel.",
+      "To return to the initial state, click the <strong>Reset</strong> button."
+    ],
+    exhibits: [
+      { title: "Directory contents", note: "The directory listing provides context for the employee data and access review.",
+        cols: ["Resource", "Current permission"],
+        rows: [
+          ["/public", "Everyone: Read"],
+          ["/dev/source-code", "Everyone: Read/Write"],
+          ["/hr/records", "Everyone: Read"],
+          ["/finance/ledgers", "Everyone: Read"],
+          ["/finance/payroll-export", "Everyone: Read/Write"]
+        ] },
+      { title: "Compensation report", note: "Classification: Restricted. The report contains confidential employee compensation information.",
+        cols: ["Employee ID", "Employee", "Department", "Annual salary"],
+        rows: [
+          ["EMP-101", "Alan Reyes", "Dev", "$101,000"],
+          ["EMP-102", "Priya Shah", "HR", "$78,000"],
+          ["EMP-103", "Marco Silva", "Finance", "$89,000"],
+          ["EMP-104", "Dana Cole", "Dev", "$95,000"],
+          ["EMP-105", "Owen Pratt", "Finance", "$83,000"],
+          ["EMP-106", "Lena Fox", "HR", "$74,000"]
+        ] },
+      { title: "User data", note: "Password metadata and reuse indicators are shown instead of plaintext passwords.",
+        cols: ["Username", "Dept", "Length", "Reused", "Compromised", "Age"],
+        rows: [
+          ["areyes", "Dev", "6", "Yes", "Yes", "200 days"],
+          ["pshah", "HR", "7", "Yes", "Yes", "75 days"],
+          ["msilva", "Finance", "8", "No", "Yes", "300 days"],
+          ["dcole", "Dev", "6", "Yes", "Yes", "140 days"],
+          ["opratt", "Finance", "15", "Yes", "Yes", "50 days"],
+          ["lfox", "HR", "20", "No", "No", "30 days"]
+        ] }
+    ],
+    blocks: [
+      { key: "weak", kind: "checks", header: "Identify weak password practices (select all that apply):",
+        options: ["Age", "Reuse", "Length", "Expiration", "Complexity"], answers: ["Reuse", "Length"] },
+      { key: "auth", kind: "radio", header: "Select the containment step that will leave potential evidence on the host uncompromised:",
+        options: ["PIN code", "FIDO security key", "SMS authentication", "OTP token"], answer: "FIDO security key" }
+    ],
+    explain: `
+      <h3>Weak password practices</h3>
+      <ul>
+        <li><strong>Reuse</strong> — multiple accounts use the same password, increasing the impact if one credential is exposed.</li>
+        <li><strong>Length</strong> — several accounts have short passwords that are easier to guess or crack.</li>
+        <li><strong>Age, Expiration and Complexity</strong> are not selected for this question.</li>
+      </ul>
+      <h3>Authentication selection</h3>
+      <ul>
+        <li><strong>FIDO security key</strong> — uses a hardware-backed, public-key authentication process and avoids entering a reusable password or one-time code into the host.</li>
+        <li>A <strong>PIN code</strong> is not a phishing-resistant authentication method by itself; <strong>SMS authentication</strong> and <strong>OTP tokens</strong> rely on codes that can be intercepted or phished.</li>
+      </ul>`
+  }
+,
+  {
+    type: "email",
+    kind: "Performance-based question",
+    title: "Phishing email analysis",
+    scenario: [
+      "Employees report an email from someone claiming to be the CEO, urgently asking them to buy gift cards. You must review the message and classify each part.",
+      "<strong>INSTRUCTIONS</strong>",
+      "Examine the email and use the drop-down menus to mark each section as suspicious or not suspicious.",
+      "To return to the initial state, click the <strong>Reset</strong> button."
+    ],
+    email: {
+      from: "Dana Price <dprice@acme-logistics-corp.com>",
+      replyto: "secure.billing87@gmail.com",
+      to: "Michael Brown <mbrown@acmelogistics.com>",
+      date: "Nov 21, 2026 9:48 PM",
+      subject: "Quick favor",
+      body: [
+        "Hi Michael,",
+        "I'm tied up with a major client and can't talk right now. Please go to the nearest store, buy five $200 gift cards, and email me the card numbers and PINs right away. Keep this between us until the deal closes.",
+        "Thanks for handling this quickly."
+      ],
+      signature: ["Regards,", "Dana Price", "Chief Executive Officer", "acme-logistics-corp.com"]
+    },
+    options: ["Suspicious", "Not suspicious"],
+    fields: [
+      { key: "sender", label: "Sender", answer: "Suspicious",
+        why: "The display name claims to be the CEO, but the domain <code>acme-logistics-corp.com</code> is a look-alike of the real <code>acmelogistics.com</code>, and the Reply-to points to a free Gmail address that doesn't match the From. That mismatch is a classic spoofing indicator." },
+      { key: "subject", label: "Subject", answer: "Not suspicious",
+        why: "“Quick favor” is a generic subject line. On its own it is not an indicator of an attack; the problem is in the sender and the request, not the subject." },
+      { key: "body", label: "Body", answer: "Suspicious",
+        why: "The message asks for gift-card numbers and PINs, adds time pressure (“right away”), and demands secrecy (“keep this between us”). That combination is a textbook business email compromise / gift-card scam." },
+      { key: "signature", label: "Signature", answer: "Suspicious",
+        why: "The signature asserts an executive title and uses the same look-alike external domain. A legitimate internal executive email would not sign off with a mismatched, outside domain." }
+    ],
+    explain: `
+      <h3>How to read this email</h3>
+      <ul>
+        <li><strong>Sender — Suspicious.</strong> Look-alike domain (<code>acme-logistics-corp.com</code> vs <code>acmelogistics.com</code>) and a Reply-to on free webmail that doesn't match the From. Always compare From and Reply-to.</li>
+        <li><strong>Subject — Not suspicious.</strong> “Quick favor” is bland; the subject isn't the red flag here.</li>
+        <li><strong>Body — Suspicious.</strong> Gift cards + urgency + secrecy is the signature of executive-impersonation (BEC) fraud. No real executive asks staff to buy gift cards and send PINs by email.</li>
+        <li><strong>Signature — Suspicious.</strong> Claims a C-level title and uses the spoofed external domain.</li>
+      </ul>
+      <p>The safe action is to verify out-of-band (call the executive on a known number), report the email to security, and never purchase gift cards on an emailed request.</p>`
+  }
+];
+
+/* ============================================================
+   TYPE: table (Q1)
+============================================================ */
+function bodyTable(q, st, stage) {
+  const sec = el("div", "section");
+  sectionHead(sec, q.caption, q.subText || "Select the vulnerability type and remediation for each payload.");
+  const wrap = el("div", "table-wrap");
+  const table = el("table", "pbq");
+  const thead = el("thead"); thead.innerHTML = `<tr><th>${q.col0||"Payloads"}</th><th>${q.col1||"Vulnerability Type"}</th><th>${q.col2||"Remediation"}</th></tr>`; table.appendChild(thead);
+  const tbody = el("tbody");
+
+  q.rows.forEach((row, i) => {
+    const tr = el("tr");
+    const td0 = el("td", "payload"); td0.appendChild(q.plainFirst ? el("span", null, row.payload) : el("code", null, row.payload));
+
+    const td1 = el("td");
+    const s1 = makeSelect(q.vulnOptions, st.rows[i].vuln, v => { st.rows[i].vuln = v; clearFeedback(); }, `Vulnerability type for payload ${i + 1}`);
+    td1.appendChild(s1);
+
+    const td2 = el("td");
+    const s2 = makeSelect(q.remedOptions, st.rows[i].remed, v => { st.rows[i].remed = v; clearFeedback(); }, `Remediation for payload ${i + 1}`);
+    td2.appendChild(s2);
+    const fb = el("div", "row-fb");
+    td2.appendChild(fb);
+
+    tr.append(td0, td1, td2); tbody.appendChild(tr);
+  });
+  table.appendChild(tbody); wrap.appendChild(table); sec.appendChild(wrap);
+
+  const { row: actionsRow, pill } = buildActions(doSubmit, doShow, doReset);
+  sec.appendChild(actionsRow);
+  const analysisHtml = "<ul>" + q.rows.map(r => `<li><strong>${r.payload.replace(/</g, "&lt;")}</strong> — ${r.vuln} · ${r.remed}. ${r.why}</li>`).join("") + "</ul>";
+  const analysisBox = buildAnalysis(analysisHtml);
+  sec.appendChild(analysisBox);
+  stage.appendChild(sec);
+
+  function clearFeedback() {
+    sec.querySelectorAll(".cell-select").forEach(s => s.classList.remove("correct", "wrong"));
+    sec.querySelectorAll(".row-fb").forEach(f => { f.textContent = ""; f.className = "row-fb"; });
+    pill.classList.remove("show", "full", "partial");
+    analysisBox.classList.remove("show");
+  }
+
+  function doSubmit() {
+    let points = 0; const total = q.rows.length * 2;
+    [...tbody.children].forEach((tr, i) => {
+      const s1 = tr.children[1].querySelector("select");
+      const s2 = tr.children[2].querySelector("select");
+      const fb = tr.children[2].querySelector(".row-fb");
+      const vOk = s1.value === q.rows[i].vuln, rOk = s2.value === q.rows[i].remed;
+      s1.classList.remove("correct", "wrong"); s1.classList.add(vOk ? "correct" : "wrong");
+      s2.classList.remove("correct", "wrong"); s2.classList.add(rOk ? "correct" : "wrong");
+      if (vOk) points++; if (rOk) points++;
+      fb.textContent = (vOk && rOk) ? "Correct" : "Check this row";
+      fb.className = "row-fb " + ((vOk && rOk) ? "good" : "bad");
+    });
+    setPill(pill, points, total);
+    analysisBox.classList.add("show");
+  }
+
+  function doShow() {
+    q.rows.forEach((row, i) => {
+      st.rows[i] = { vuln: row.vuln, remed: row.remed };
+      const tr = tbody.children[i];
+      tr.children[1].querySelector("select").value = row.vuln;
+      tr.children[2].querySelector("select").value = row.remed;
+    });
+    doSubmit();
+  }
+
+  function doReset() { states[current] = freshState(q); renderQuestion(); }
+}
+
+/* ============================================================
+   TYPE: console — typed-command terminals + threat feeds + answer area
+============================================================ */
+function runCmd(sv, raw) {
+  const cmd = raw.trim().replace(/\s+/g, " ");
+  if (cmd === "") return "";
+  if (cmd === "clear") return "__CLEAR__";
+  if (cmd === "help") return sv.out.help;
+  if (cmd === "ss -tunap" || cmd === "ss") return sv.out.ss;
+  if (cmd === "ps -ef" || cmd === "ps") return sv.out.ps;
+  let m;
+  if ((m = cmd.match(/^ps -p (\d+)/))) { const pid = m[1]; if (sv.exe[pid]) return "  PID USER      COMMAND\n" + pid.padStart(5) + " " + (sv.procuser[pid] || "").padEnd(9) + " " + sv.exe[pid]; return "error: process ID " + pid + " not found"; }
+  if ((m = cmd.match(/^readlink \/proc\/(\d+)\/exe$/))) { const pid = m[1]; return sv.exe[pid] || ("readlink: /proc/" + pid + "/exe: No such file or directory"); }
+  if ((m = cmd.match(/^ls -l (\/\S+)/))) { const f = m[1]; return (sv.files[f] && sv.files[f].ls) || ("ls: cannot access '" + f + "': No such file or directory"); }
+  if ((m = cmd.match(/^sha256sum (\/\S+)/))) { const f = m[1]; return (sv.files[f] ? sv.files[f].sha + "  " + f : "sha256sum: " + f + ": No such file or directory"); }
+  if ((m = cmd.match(/^kill (\d+)/))) { const pid = m[1]; return sv.exe[pid] ? "[process " + pid + " terminated]" : "kill: (" + pid + ") - No such process"; }
+  if ((m = cmd.match(/^rm (\/\S+)/))) { return "removed '" + m[1] + "'"; }
+  return "bash: " + cmd.split(" ")[0] + ": command not found";
+}
+
+function bodyConsole(q, st, stage) {
+  const ICON_EXT = '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 4h6v6M20 4l-9 9M19 13v6a1 1 0 01-1 1H5a1 1 0 01-1-1V6a1 1 0 011-1h6"/></svg>';
+  const sec = el("div", "section");
+  sectionHead(sec, q.title, "Open each feed, investigate both consoles, then complete the answer area.");
+
+  const feedsRow = el("div", "con-feeds");
+  q.feeds.forEach(f => {
+    const btn = el("button", "con-feed"); btn.type = "button";
+    btn.innerHTML = "<span>" + f.title.split(" — ")[0] + "</span>" + ICON_EXT;
+    btn.addEventListener("click", () => openFeed(f));
+    feedsRow.appendChild(btn);
+  });
+  sec.appendChild(feedsRow);
+
+  const tabs = el("div", "con-tabs");
+  Object.keys(q.servers).forEach(k => {
+    const t = el("button", "con-tab" + (st.tab === k ? " active" : ""), q.servers[k].label); t.type = "button";
+    t.addEventListener("click", () => { st.tab = k; rerender(); });
+    tabs.appendChild(t);
+  });
+  sec.appendChild(tabs);
+
+  const term = el("div", "con-term");
+  const out = el("pre", "con-out");
+  const inrow = el("div", "con-inrow");
+  const promptEl = el("span", "con-prompt");
+  const input = document.createElement("input");
+  input.className = "con-input"; input.type = "text"; input.autocomplete = "off"; input.spellcheck = false;
+  inrow.append(promptEl, input); term.append(out, inrow); sec.appendChild(term);
+
+  const ansWrap = el("div");
+  const feedField = el("div", "con-feed-row");
+  const fl = el("label"); fl.innerHTML = q.answerFeed.label; fl.className = "con-flabel";
+  const fsel = makeSelect(q.answerFeed.options, st.sel[q.answerFeed.key] || "", v => { st.sel[q.answerFeed.key] = v; clearFeedback(); }, q.answerFeed.label);
+  const fwrap = el("div", "con-selwrap"); fwrap.dataset.key = q.answerFeed.key; fwrap.appendChild(fsel);
+  feedField.append(fl, fwrap); ansWrap.appendChild(feedField);
+
+  const grid = el("div", "con-ans");
+  Object.keys(q.servers).forEach(k => {
+    const sv = q.servers[k];
+    const card = el("div", "con-card");
+    card.appendChild(el("h4", null, sv.label));
+    [sv.procField, sv.fileField].forEach(fld => {
+      const box = el("div", "con-field");
+      const lb = el("label", null, fld.label); box.appendChild(lb);
+      const sw = el("div", "con-selwrap"); sw.dataset.key = fld.key;
+      sw.appendChild(makeSelect(fld.options, st.sel[fld.key] || "", v => { st.sel[fld.key] = v; clearFeedback(); }, fld.label));
+      box.appendChild(sw); card.appendChild(box);
+    });
+    grid.appendChild(card);
+  });
+  ansWrap.appendChild(grid); sec.appendChild(ansWrap);
+
+  const { row: actionsRow, pill } = buildActions(doSubmit, doShow, doReset);
+  sec.appendChild(actionsRow);
+  const analysisBox = buildAnalysis(q.explain);
+  sec.appendChild(analysisBox);
+  stage.appendChild(sec);
+
+  renderTerm();
+
+  function curSv() { return q.servers[st.tab]; }
+  function renderTerm() {
+    const sv = curSv();
+    promptEl.textContent = sv.prompt;
+    out.textContent = (st.history[st.tab] || []).join("\n");
+    out.scrollTop = out.scrollHeight;
+  }
+  function rerender() {
+    [...tabs.children].forEach((t, i) => t.classList.toggle("active", Object.keys(q.servers)[i] === st.tab));
+    renderTerm();
+  }
+  input.addEventListener("keydown", e => {
+    if (e.key !== "Enter") return;
+    const sv = curSv(); const line = input.value;
+    if (line.trim()) {
+      st.history[st.tab] = st.history[st.tab] || [];
+      st.history[st.tab].push(sv.prompt + line);
+      const res = runCmd(sv, line);
+      if (res === "__CLEAR__") st.history[st.tab] = [];
+      else if (res !== "") st.history[st.tab].push(res);
+    }
+    input.value = ""; renderTerm();
+  });
+
+  function openFeed(f) {
+    const ov = el("div", "con-modal show");
+    const box = el("div", "con-modal-box");
+    const head = el("div", "con-modal-head");
+    head.appendChild(el("h3", null, f.title));
+    const x = el("button", "con-modal-x", "✕"); x.type = "button"; x.addEventListener("click", () => ov.remove());
+    head.appendChild(x); box.appendChild(head);
+    const tbl = el("table", "con-feed-tbl");
+    const thead = el("thead"); const htr = el("tr"); f.cols.forEach(c => htr.appendChild(el("th", null, c))); thead.appendChild(htr); tbl.appendChild(thead);
+    const tb = el("tbody");
+    f.rows.forEach(r => { const tr = el("tr"); r.forEach(c => tr.appendChild(el("td", null, c))); tb.appendChild(tr); });
+    tbl.appendChild(tb); box.appendChild(tbl); ov.appendChild(box);
+    ov.addEventListener("click", e => { if (e.target === ov) ov.remove(); });
+    document.body.appendChild(ov);
+  }
+
+  function clearFeedback() {
+    sec.querySelectorAll(".con-selwrap select").forEach(s => s.classList.remove("correct", "wrong"));
+    pill.classList.remove("show", "full", "partial");
+    analysisBox.classList.remove("show");
+  }
+  function doSubmit() {
+    const keys = Object.keys(q.answer); let pts = 0;
+    sec.querySelectorAll(".con-selwrap").forEach(w => {
+      const key = w.dataset.key, selEl = w.querySelector("select");
+      const ok = st.sel[key] === q.answer[key];
+      selEl.classList.remove("correct", "wrong"); selEl.classList.add(ok ? "correct" : "wrong");
+      if (ok) pts++;
+    });
+    setPill(pill, pts, keys.length); analysisBox.classList.add("show");
+  }
+  function doShow() {
+    Object.keys(q.answer).forEach(k => { st.sel[k] = q.answer[k]; });
+    sec.querySelectorAll(".con-selwrap").forEach(w => { const s = w.querySelector("select"); s.value = st.sel[w.dataset.key]; });
+    Object.keys(q.servers).forEach(k => {
+      const sv = q.servers[k]; st.history[k] = st.history[k] || [];
+      (sv.remediation || []).forEach(([c, r]) => { st.history[k].push(sv.prompt + c); st.history[k].push(r); });
+    });
+    renderTerm(); doSubmit();
+  }
+  function doReset() { states[current] = freshState(q); renderQuestion(); }
+}
+
+/* ============================================================
+   TYPE: rbac — evidence modals + checkbox/radio answer blocks
+============================================================ */
+function bodyRbac(q, st, stage) {
+  const sec = el("div", "section");
+  sectionHead(sec, q.title, "Open each evidence item, then complete the answer area.");
+
+  const RB_ICONS = {"Directory contents": "<svg viewBox=\"0 0 48 48\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M10 8h18a4 4 0 014 4v22a4 4 0 00-4-4H10z\"/><path d=\"M10 8v26\"/><circle cx=\"33\" cy=\"30\" r=\"7\"/><path d=\"M38 35l5 5\"/></svg>", "Compensation report": "<svg viewBox=\"0 0 48 48\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 6h18a4 4 0 014 4v28a4 4 0 00-4-4H12z\"/><path d=\"M12 6v32\"/><circle cx=\"23\" cy=\"18\" r=\"4\"/><path d=\"M16 30c0-4 3-6 7-6s7 2 7 6\"/></svg>", "User data": "<svg viewBox=\"0 0 48 48\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M14 6h14l8 8v28H14z\"/><path d=\"M28 6v8h8\"/><circle cx=\"24\" cy=\"24\" r=\"4\"/><path d=\"M17 36c0-4 3-6 7-6s7 2 7 6\"/></svg>", "Authentication policy": "<svg viewBox=\"0 0 48 48\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M24 6l14 6v10c0 9-6 15-14 18-8-3-14-9-14-18V12z\"/><path d=\"M18 24l4 4 8-8\"/></svg>"};
+  const row = el("div", "rbac-icons");
+  q.exhibits.forEach(ex => {
+    const card = el("button", "rbac-ic-card"); card.type = "button";
+    const circ = el("span", "rbac-ic-circ"); circ.innerHTML = RB_ICONS[ex.title] || RB_ICONS["Directory contents"];
+    card.append(circ, el("span", "rbac-ic-label", ex.title));
+    card.addEventListener("click", () => openExhibit(ex));
+    row.appendChild(card);
+  });
+  const grid = el("div", "rbac2");
+  const evCol = el("div", "rbac2-ev"); evCol.appendChild(row);
+  const panel = el("div", "rbac2-panel");
+  grid.append(evCol, panel); sec.appendChild(grid);
+
+  const items = [];
+  q.blocks.forEach(b => {
+    const box = el("div", "rbac-block");
+    box.appendChild(el("div", "rbac-head", b.header));
+    const list = el("div", "chk-list" + (b.key === "weak" ? " rbac-choice-grid" : ""));
+    box.classList.add("rbac-block-" + b.key);
+    b.options.forEach(opt => {
+      const lbl = el("label", "chk");
+      const inp = document.createElement("input");
+      inp.type = (b.kind === "radio") ? "radio" : "checkbox";
+      inp.name = b.key; inp.value = opt;
+      if (b.kind === "radio") inp.checked = st.sel[b.key] === opt;
+      else inp.checked = Array.isArray(st.sel[b.key]) && st.sel[b.key].includes(opt);
+      inp.addEventListener("change", () => {
+        if (b.kind === "radio") st.sel[b.key] = opt;
+        else st.sel[b.key] = [...list.querySelectorAll("input:checked")].map(x => x.value);
+        clearFeedback();
+      });
+      const span = el("span", null, opt);
+      const badge = el("span", "badge");
+      lbl.append(inp, span, badge);
+      list.appendChild(lbl);
+      items.push({ block: b, opt, inp, badge, lbl });
+    });
+    box.appendChild(list); panel.appendChild(box);
+  });
+
+  const { row: actionsRow, pill } = buildActions(doSubmit, doShow, doReset);
+  sec.appendChild(actionsRow);
+  const analysisBox = buildAnalysis(q.explain);
+  sec.appendChild(analysisBox);
+  stage.appendChild(sec);
+
+  function maxPts() { return q.blocks.reduce((t, b) => t + (b.kind === "radio" ? 1 : b.answers.length), 0); }
+  function openExhibit(ex) {
+    const ov = el("div", "con-modal show");
+    const box = el("div", "con-modal-box");
+    const head = el("div", "con-modal-head");
+    head.appendChild(el("h3", null, ex.title));
+    const x = el("button", "con-modal-x", "✕"); x.type = "button"; x.addEventListener("click", () => ov.remove());
+    head.appendChild(x); box.appendChild(head);
+    if (ex.note) { const n = el("p", "rbac-note", ex.note); box.appendChild(n); }
+    const tbl = el("table", "con-feed-tbl");
+    const thead = el("thead"); const htr = el("tr"); ex.cols.forEach(c => htr.appendChild(el("th", null, c))); thead.appendChild(htr); tbl.appendChild(thead);
+    const tb = el("tbody");
+    ex.rows.forEach(r => { const tr = el("tr"); r.forEach(c => tr.appendChild(el("td", null, c))); tb.appendChild(tr); });
+    tbl.appendChild(tb); box.appendChild(tbl); ov.appendChild(box);
+    ov.addEventListener("click", e => { if (e.target === ov) ov.remove(); });
+    document.body.appendChild(ov);
+  }
+  function clearFeedback() {
+    items.forEach(it => { it.badge.className = "badge"; it.badge.textContent = ""; it.lbl.classList.remove("mcq-right", "mcq-wrong"); });
+    pill.classList.remove("show", "full", "partial"); analysisBox.classList.remove("show");
+  }
+  function doSubmit() {
+    clearFeedback();
+    let pts = 0;
+    q.blocks.forEach(b => {
+      const sel = st.sel[b.key];
+      if (b.kind === "radio") { if (sel === b.answer) pts += 1; }
+      else { const a = b.answers, s = sel || []; const good = s.filter(x => a.includes(x)).length, bad = s.length - good; pts += Math.max(0, good - bad); }
+    });
+    items.forEach(it => {
+      const b = it.block, isAns = (b.kind === "radio") ? (it.opt === b.answer) : b.answers.includes(it.opt);
+      const chosen = (b.kind === "radio") ? (st.sel[b.key] === it.opt) : (Array.isArray(st.sel[b.key]) && st.sel[b.key].includes(it.opt));
+      if (isAns) { it.badge.className = "badge correct"; it.badge.textContent = "Correct answer"; it.lbl.classList.add("mcq-right"); }
+      else if (chosen) { it.badge.className = "badge incorrect"; it.badge.textContent = "Your answer"; it.lbl.classList.add("mcq-wrong"); }
+    });
+    setPill(pill, pts, maxPts()); analysisBox.classList.add("show");
+  }
+  function doShow() {
+    q.blocks.forEach(b => { st.sel[b.key] = (b.kind === "radio") ? b.answer : b.answers.slice(); });
+    items.forEach(it => {
+      const b = it.block;
+      it.inp.checked = (b.kind === "radio") ? (b.answer === it.opt) : b.answers.includes(it.opt);
+    });
+    doSubmit();
+  }
+  function doReset() { states[current] = freshState(q); renderQuestion(); }
+}
+
+/* ============================================================
+   TYPE: email — email on the left, dropdown beside each section
+============================================================ */
+function bodyEmail(q, st, stage) {
+  const sec = el("div", "section");
+  sectionHead(sec, q.title, "Classify each section of the email as suspicious or not suspicious.");
+  const m = q.email;
+  const byKey = {}; q.fields.forEach(f => byKey[f.key] = f);
+
+  const wrap = el("div", "eml2");
+  const bar = el("div", "eml2-topbar"); bar.innerHTML = "<span>&#9472;</span><span>&#9633;</span><span>&#10005;</span>"; wrap.appendChild(bar);
+
+  function makeCtrl(fld) {
+    const c = el("div", "eml2-ctrl"); const w = el("div", "eml-selwrap"); w.dataset.key = fld.key;
+    const sel = document.createElement("select"); sel.className = "cell-select"; sel.setAttribute("aria-label", "Classification for " + fld.label);
+    const blank = document.createElement("option"); blank.value = ""; blank.textContent = "Select for " + fld.label.toLowerCase(); sel.appendChild(blank);
+    q.options.forEach(o => { const op = document.createElement("option"); op.value = o; op.textContent = o; sel.appendChild(op); });
+    sel.value = st.sel[fld.key] || "";
+    sel.addEventListener("change", () => { st.sel[fld.key] = sel.value; clearFeedback(); });
+    w.appendChild(sel); c.appendChild(w); return c;
+  }
+  function kv(k, v) { const r = el("div", "eml-row"); r.appendChild(el("div", "k", k)); r.appendChild(el("div", "v", v)); return r; }
+  function row(cell, fld) { const r = el("div", "eml2-row"); r.append(cell, makeCtrl(fld)); return r; }
+
+  const head = el("div", "eml2-cell head");
+  head.append(kv("From:", m.from), kv("Reply-to:", m.replyto), kv("To:", m.to), kv("Date:", m.date));
+  wrap.appendChild(row(head, byKey.sender));
+
+  const subj = el("div", "eml2-cell"); subj.appendChild(kv("Subject:", m.subject));
+  wrap.appendChild(row(subj, byKey.subject));
+
+  const body = el("div", "eml2-cell body"); m.body.forEach(par => { const pp = el("p"); pp.textContent = par; body.appendChild(pp); });
+  wrap.appendChild(row(body, byKey.body));
+
+  const sig = el("div", "eml2-cell sig"); m.signature.forEach(line => { const d = el("div"); d.textContent = line; sig.appendChild(d); });
+  wrap.appendChild(row(sig, byKey.signature));
+
+  sec.appendChild(wrap);
+
+  const { row: actionsRow, pill } = buildActions(doSubmit, doShow, doReset);
+  sec.appendChild(actionsRow);
+  const analysisHtml = "<ul>" + q.fields.map(f => `<li><strong>${f.label} — ${f.answer}.</strong> ${f.why}</li>`).join("") + "</ul>";
+  const analysisBox = buildAnalysis(analysisHtml);
+  sec.appendChild(analysisBox);
+  stage.appendChild(sec);
+
+  function clearFeedback() { sec.querySelectorAll(".eml-selwrap select").forEach(s => s.classList.remove("correct", "wrong")); pill.classList.remove("show", "full", "partial"); analysisBox.classList.remove("show"); }
+  function doSubmit() {
+    let pts = 0;
+    sec.querySelectorAll(".eml-selwrap").forEach(w => {
+      const key = w.dataset.key, selEl = w.querySelector("select"); const ok = st.sel[key] === byKey[key].answer;
+      selEl.classList.remove("correct", "wrong"); selEl.classList.add(ok ? "correct" : "wrong"); if (ok) pts++;
+    });
+    setPill(pill, pts, q.fields.length); analysisBox.classList.add("show");
+  }
+  function doShow() { q.fields.forEach(f => { st.sel[f.key] = f.answer; }); sec.querySelectorAll(".eml-selwrap").forEach(w => { w.querySelector("select").value = st.sel[w.dataset.key]; }); doSubmit(); }
+  function doReset() { states[current] = freshState(q); renderQuestion(); }
+}
+
+/* ============================================================
+   TYPE: match — task-to-tool table
+============================================================ */
+function bodyMatch(q, st, stage) {
+  const sec = el("div", "section");
+  sectionHead(sec, q.title, "Select the single most appropriate tool for each task.");
+  const wrap = el("div", "table-wrap");
+  const table = el("table", "pbq");
+  const thead = el("thead"); thead.innerHTML = "<tr><th>Task</th><th>Tool</th></tr>"; table.appendChild(thead);
+  const tbody = el("tbody");
+  q.rows.forEach((row, i) => {
+    const tr = el("tr");
+    const td0 = el("td"); td0.innerHTML = row.task;
+    const td1 = el("td");
+    const s = makeSelect(q.options, st.ans[i] || "", v => { st.ans[i] = v; clearFeedback(); }, "Tool for task " + (i + 1));
+    td1.appendChild(s); const fb = el("div", "row-fb"); td1.appendChild(fb);
+    tr.append(td0, td1); tbody.appendChild(tr);
+  });
+  table.appendChild(tbody); wrap.appendChild(table); sec.appendChild(wrap);
+  const { row: actionsRow, pill } = buildActions(doSubmit, doShow, doReset);
+  sec.appendChild(actionsRow);
+  const analysisHtml = "<ul>" + q.rows.map(r => `<li><strong>${r.answer}</strong> — ${r.why}</li>`).join("") + "</ul>";
+  const analysisBox = buildAnalysis(analysisHtml); sec.appendChild(analysisBox);
+  stage.appendChild(sec);
+  function clearFeedback() { sec.querySelectorAll(".cell-select").forEach(s => s.classList.remove("correct", "wrong")); sec.querySelectorAll(".row-fb").forEach(f => { f.textContent = ""; f.className = "row-fb"; }); pill.classList.remove("show", "full", "partial"); analysisBox.classList.remove("show"); }
+  function doSubmit() {
+    let pts = 0;
+    [...tbody.children].forEach((tr, i) => {
+      const s = tr.children[1].querySelector("select"), fb = tr.children[1].querySelector(".row-fb");
+      const ok = s.value === q.rows[i].answer;
+      s.classList.remove("correct", "wrong"); s.classList.add(ok ? "correct" : "wrong");
+      if (ok) pts++; fb.textContent = ok ? "Correct" : "Incorrect"; fb.className = "row-fb " + (ok ? "good" : "bad");
+    });
+    setPill(pill, pts, q.rows.length); analysisBox.classList.add("show");
+  }
+  function doShow() { q.rows.forEach((r, i) => { st.ans[i] = r.answer; tbody.children[i].children[1].querySelector("select").value = r.answer; }); doSubmit(); }
+  function doReset() { states[current] = freshState(q); renderQuestion(); }
+}
+
+/* ============================================================
+   TYPE: multi (Q3) — tabbed output + findings tied to each tab
+============================================================ */
+function blockResult(b, ans) {
+  if (b.kind === "radio") return { points: ans === b.answer ? 1 : 0, total: 1 };
+  if (b.kind === "checks") {
+    const sel = ans || [];
+    const good = sel.filter(x => b.answers.includes(x)).length, bad = sel.length - good;
+    return { points: Math.max(0, good - bad), total: b.answers.length };
+  }
+  const sel = ans || [];
+  return { points: b.items.filter((it, i) => sel[i] === it.answer).length, total: b.items.length };
+}
+
+function bodyMulti(q, st, stage) {
+  const sec = el("div", "section");
+  sectionHead(sec, q.title, "Review each output tab, then answer its findings below.");
+
+  const panel = el("div", "term-panel");
+  const tabs = el("div", "term-tabs");
+  q.outputs.forEach((o, i) => {
+    const b = el("button", "term-tab" + (i === st.tab ? " active" : ""), o.label); b.type = "button";
+    b.addEventListener("click", () => { st.tab = i; rerender(); });
+    tabs.appendChild(b);
+  });
+  panel.appendChild(tabs);
+  const body = el("div", "term-body");
+  const pre = el("pre", null, q.outputs[st.tab].text);
+  body.appendChild(pre);
+  panel.appendChild(body);
+  sec.appendChild(panel);
+
+  const findingsWrap = el("div");
+  sec.appendChild(findingsWrap);
+
+  const { row: actionsRow, pill } = buildActions(doSubmit, doShow, doReset);
+  sec.appendChild(actionsRow);
+  const analysisHtml = "<ul>" + q.blocks.map(b => `<li>${(b.why || (b.items ? b.items.map(it => it.why).join(" ") : ""))}</li>`).join("") + "</ul>";
+  const analysisBox = buildAnalysis(analysisHtml);
+  sec.appendChild(analysisBox);
+  stage.appendChild(sec);
+
+  function rerender() {
+    [...tabs.children].forEach((btn, i) => btn.classList.toggle("active", i === st.tab));
+    pre.textContent = q.outputs[st.tab].text;
+    renderFindings();
+  }
+
+  function renderFindings() {
+    findingsWrap.innerHTML = "";
+    const grid = el("div", "answer-grid");
+    q.blocks.forEach((b, bi) => {
+      if (b.output !== st.tab) return;
+      if (b.kind === "radio" || b.kind === "checks") {
+        const multi = b.kind === "checks";
+        const box = el("div", "qbox" + (multi ? " actions-box" : ""));
+        const lab = el("label"); lab.innerHTML = b.header; box.appendChild(lab);
+        if (b.context) { const c = el("div", "sub"); c.innerHTML = b.context; c.style.marginBottom = "10px"; box.appendChild(c); }
+        if (!multi) {
+          const sel = st.ans[bi];
+          b.options.forEach(opt => {
+            const lbl = el("label", "chk");
+            const inp = document.createElement("input"); inp.type = "radio"; inp.name = "b" + bi; inp.value = opt; inp.checked = sel === opt;
+            inp.addEventListener("change", () => { st.ans[bi] = opt; clearFeedback(); });
+            const span = el("span", null, opt);
+            const badge = el("span", "badge");
+            if (st.checked) { const ok = opt === b.answer; if (inp.checked) { badge.classList.add(ok ? "correct" : "incorrect"); badge.textContent = ok ? "Correct" : "Incorrect"; } }
+            lbl.append(inp, span, badge);
+            box.appendChild(lbl);
+          });
+        } else {
+          if (b.prompt) { const p = el("div"); p.innerHTML = b.prompt; p.style.marginBottom = "8px"; p.style.fontSize = "13px"; p.style.color = "var(--text-dim)"; box.appendChild(p); }
+          const list = el("div", "chk-list");
+          const sel = st.ans[bi] || [];
+          b.options.forEach(opt => {
+            const lbl = el("label", "chk");
+            const inp = document.createElement("input"); inp.type = "checkbox"; inp.value = opt; inp.checked = sel.includes(opt);
+            inp.addEventListener("change", () => { st.ans[bi] = [...list.querySelectorAll("input:checked")].map(x => x.value); clearFeedback(); });
+            const span = el("span", null, opt);
+            const badge = el("span", "badge");
+            if (st.checked && inp.checked) { const ok = b.answers.includes(opt); badge.classList.add(ok ? "correct" : "incorrect"); badge.textContent = ok ? "Correct" : "Incorrect"; }
+            lbl.append(inp, span, badge);
+            list.appendChild(lbl);
+          });
+          box.appendChild(list);
+        }
+        grid.appendChild(box);
+      } else {
+        const box = el("div", "qbox actions-box");
+        const lab = el("label"); lab.innerHTML = b.header; box.appendChild(lab);
+        b.items.forEach((it, ii) => {
+          const row = el("div"); row.style.marginBottom = "10px";
+          const l2 = el("label"); l2.style.fontWeight = "400"; l2.style.fontSize = "12.5px"; l2.textContent = it.prompt;
+          row.appendChild(l2);
+          const sel = makeSelect(it.options, (st.ans[bi] || [])[ii] || "", v => { st.ans[bi] = st.ans[bi] || []; st.ans[bi][ii] = v; clearFeedback(); }, it.prompt);
+          if (st.checked) sel.classList.add(sel.value === it.answer ? "correct" : "wrong");
+          row.appendChild(sel);
+          box.appendChild(row);
+        });
+        grid.appendChild(box);
+      }
+    });
+    findingsWrap.appendChild(grid);
+  }
+  renderFindings();
+
+  function clearFeedback() {
+    st.checked = false;
+    pill.classList.remove("show", "full", "partial");
+    analysisBox.classList.remove("show");
+    renderFindings();
+  }
+
+  function doSubmit() {
+    let points = 0, total = 0;
+    q.blocks.forEach((b, bi) => { const r = blockResult(b, st.ans[bi]); points += r.points; total += r.total; });
+    st.checked = true;
+    renderFindings();
+    setPill(pill, points, total);
+    analysisBox.classList.add("show");
+  }
+
+  function doShow() {
+    q.blocks.forEach((b, bi) => {
+      if (b.kind === "radio") st.ans[bi] = b.answer;
+      else if (b.kind === "checks") st.ans[bi] = b.answers.slice();
+      else st.ans[bi] = b.items.map(it => it.answer);
+    });
+    doSubmit();
+  }
+
+  function doReset() { states[current] = freshState(q); renderQuestion(); }
+}
+
+/* ============================================================
+   TYPE: sim (Q4) — network diagram + Nmap + vuln/remediation tabs
+============================================================ */
+const SIM_ICONS = {
+  fw: '<svg viewBox="0 0 64 48" width="60" height="44" aria-hidden="true"><rect x="2" y="2" width="60" height="44" fill="none" stroke="currentColor" stroke-width="3"/><path d="M2 17h60M2 32h60M22 2v15M42 2v15M12 17v15M32 17v15M52 17v15M22 32v14M42 32v14" fill="none" stroke="currentColor" stroke-width="3"/></svg>',
+  pc: '<svg viewBox="0 0 64 44" width="56" height="38" aria-hidden="true"><rect x="10" y="3" width="44" height="28" rx="3" fill="none" stroke="currentColor" stroke-width="3"/><path d="M3 40h58l-5-7H8z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/></svg>',
+  srv: '<svg viewBox="0 0 40 52" width="38" height="50" aria-hidden="true"><rect x="3" y="2" width="34" height="48" rx="4" fill="none" stroke="currentColor" stroke-width="3"/><path d="M9 14h22M9 22h22" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="20" cy="38" r="6" fill="none" stroke="currentColor" stroke-width="3"/></svg>'
+};
+
+function bodySim(q, st, stage) {
+  const sec = el("div", "section");
+  sectionHead(sec, q.title, "Click the WAF and each server to review its Nmap scan, then answer below.");
+
+  const grid = el("div", "simgrid");
+  const left = el("div");
+  const net = el("div", "net");
+  const ws = el("div", "ws"); ws.innerHTML = SIM_ICONS.pc; ws.appendChild(el("span", null, q.sourceLabel || "PENTESTER WORKSTATION")); net.appendChild(ws);
+  net.appendChild(el("div", "down", "↓"));
+  const zones = el("div", "zones"); zones.style.gridTemplateColumns = "1fr";
+  const z2 = el("div", "zone prod"); z2.appendChild(el("h4", null, q.zoneLabel || "SCANNED HOSTS"));
+  const nodes = el("div", "nodes"); nodes.style.flexWrap = "wrap";
+  Object.keys(q.nodes).forEach((k, i) => { if (i) nodes.append(el("span", "arrow", "·")); nodes.append(simNode(q, st, k)); });
+  z2.appendChild(nodes); zones.append(z2);
+  net.appendChild(zones);
+  net.appendChild(el("div", "hint", "Click the WAF and each server to review its Nmap scan."));
+  left.appendChild(net);
+
+  const nmapWrap = el("div");
+  left.appendChild(nmapWrap);
+  renderNmap();
+
+  const right = el("div", "simright");
+  const tabs = el("div", "term-tabs");
+  [["vuln", "Vulnerability"], ["rem", "Remediation"]].forEach(([id, label]) => {
+    const b = el("button", "term-tab" + (st.tab === id ? " active" : ""), label); b.type = "button";
+    b.addEventListener("click", () => { st.tab = id; rerenderTab(); });
+    tabs.appendChild(b);
+  });
+  const qboxWrap = el("div"); qboxWrap.style.background = "var(--panel)"; qboxWrap.style.border = "1px solid var(--border)"; qboxWrap.style.borderTop = "0"; qboxWrap.style.borderRadius = "0 0 12px 12px"; qboxWrap.style.padding = "16px";
+  right.append(tabs, qboxWrap);
+  renderQbox();
+
+  grid.append(left, right);
+  sec.appendChild(grid);
+
+  const { row: actionsRow, pill } = buildActions(doSubmit, doShow, doReset);
+  sec.appendChild(actionsRow);
+  const analysisBox = buildAnalysis(q.explain);
+  sec.appendChild(analysisBox);
+  stage.appendChild(sec);
+
+  function renderNmap() {
+    nmapWrap.innerHTML = "";
+    if (!st.open) return;
+    const n = q.nodes[st.open];
+    const box = el("div", "nmap");
+    const h = el("div", "nh2"); h.appendChild(el("span", null, n.title));
+    const x = el("button", null, "✕"); x.type = "button";
+    x.addEventListener("click", () => { st.open = null; renderNmap(); });
+    h.appendChild(x);
+    const pre = el("pre", null, n.text);
+    box.append(h, pre); nmapWrap.appendChild(box);
+  }
+
+  function rerenderTab() {
+    [...tabs.children].forEach((b, i) => b.classList.toggle("active", (i === 0 ? "vuln" : "rem") === st.tab));
+    renderQbox();
+  }
+
+  function renderQbox() {
+    qboxWrap.innerHTML = "";
+    const spec = q[st.tab];
+    const multi = st.tab === "rem";
+    const h3 = el("div"); h3.style.fontFamily = "'Space Grotesk',sans-serif"; h3.style.fontWeight = "600"; h3.style.fontSize = "13.5px"; h3.style.marginBottom = "10px"; h3.innerHTML = spec.prompt;
+    qboxWrap.appendChild(h3);
+    const list = el("div", "chk-list");
+    spec.options.forEach(opt => {
+      const lbl = el("label", "chk");
+      const inp = document.createElement("input"); inp.type = multi ? "checkbox" : "radio"; inp.name = "sim-" + st.tab; inp.value = opt;
+      inp.checked = multi ? st.ans.rem.includes(opt) : st.ans.vuln === opt;
+      inp.addEventListener("change", () => {
+        if (multi) st.ans.rem = [...list.querySelectorAll("input:checked")].map(x => x.value);
+        else st.ans.vuln = opt;
+        clearFeedback();
+      });
+      const span = el("span", null, opt);
+      const badge = el("span", "badge");
+      if (st.checked && inp.checked) { const ok = multi ? spec.answers.includes(opt) : opt === spec.answer; badge.classList.add(ok ? "correct" : "incorrect"); badge.textContent = ok ? "Correct" : "Incorrect"; }
+      lbl.append(inp, span, badge);
+      list.appendChild(lbl);
+    });
+    qboxWrap.appendChild(list);
+  }
+
+  function clearFeedback() {
+    st.checked = false;
+    pill.classList.remove("show", "full", "partial");
+    analysisBox.classList.remove("show");
+    renderQbox();
+  }
+
+  function doSubmit() {
+    const vPts = st.ans.vuln === q.vuln.answer ? 1 : 0;
+    const good = st.ans.rem.filter(x => q.rem.answers.includes(x)).length, bad = st.ans.rem.length - good;
+    const rPts = Math.max(0, good - bad);
+    st.checked = true;
+    renderQbox();
+    setPill(pill, vPts + rPts, 1 + q.rem.answers.length);
+    analysisBox.classList.add("show");
+  }
+
+  function doShow() { st.ans = { vuln: q.vuln.answer, rem: q.rem.answers.slice() }; doSubmit(); }
+  function doReset() { states[current] = freshState(q); renderQuestion(); }
+}
+
+function simNode(q, st, key) {
+  const n = q.nodes[key];
+  const b = el("button", "node" + (st.open === key ? " active" : "")); b.type = "button"; b.dataset.node = key;
+  const ico = el("span", "ico"); ico.innerHTML = SIM_ICONS[n.icon]; b.appendChild(ico);
+  b.appendChild(el("span", "nn", n.name)); b.appendChild(el("span", "nh", n.host));
+  b.addEventListener("click", () => { st.open = st.open === key ? null : key; renderQuestion(); });
+  return b;
+}
+
+/* ============================================================
+   TYPE: hotspot (Q5) — robots.txt + tool selection
+============================================================ */
+function bodyHotspot(q, st, stage) {
+  const sec = el("div", "section");
+  sectionHead(sec, q.title, "Select the entries to remove and the tool to use next.");
+
+  const grid = el("div", "simgrid");
+  const left = el("div", "hotpanel");
+  const bar = el("div", "urlbar");
+  bar.appendChild(el("span", "nav-dots", "‹ › ↻")); bar.appendChild(el("div", "url", q.url)); left.appendChild(bar);
+  const pr = el("div", "hotprompt"); pr.appendChild(el("span", null, q.listPrompt));
+  const cnt = el("span", "cnt"); pr.appendChild(cnt); left.appendChild(pr);
+  const list = el("div", "robots"); left.appendChild(list);
+
+  const right = el("div");
+  const rsec = el("div"); rsec.style.background = "var(--panel)"; rsec.style.border = "1px solid var(--border)"; rsec.style.borderRadius = "12px"; rsec.style.padding = "16px 18px";
+  const rh = el("div"); rh.style.fontFamily = "'Space Grotesk',sans-serif"; rh.style.fontWeight = "600"; rh.style.fontSize = "13.5px"; rh.style.marginBottom = "4px"; rh.textContent = q.tool.header;
+  const rp = el("div"); rp.style.fontSize = "12.5px"; rp.style.color = "var(--text-dim)"; rp.style.marginBottom = "10px"; rp.textContent = q.tool.prompt;
+  const toolList = el("div", "chk-list");
+  rsec.append(rh, rp, toolList);
+  right.appendChild(rsec);
+  grid.append(left, right);
+  sec.appendChild(grid);
+
+  const { row: actionsRow, pill } = buildActions(doSubmit, doShow, doReset);
+  sec.appendChild(actionsRow);
+  const analysisBox = buildAnalysis(q.explain);
+  sec.appendChild(analysisBox);
+  stage.appendChild(sec);
+
+  function renderList() {
+    list.innerHTML = "";
+    cnt.textContent = `Selected: ${st.sel.length} / ${q.remove.length}`;
+    q.lines.forEach((t, i) => {
+      const lab = el("label", "rline");
+      const inp = document.createElement("input"); inp.type = "checkbox"; inp.checked = st.sel.includes(i); inp.value = i;
+      inp.addEventListener("change", () => {
+        st.sel = [...list.querySelectorAll("input:checked")].map(x => +x.value);
+        cnt.textContent = `Selected: ${st.sel.length} / ${q.remove.length}`;
+        clearFeedback();
+      });
+      lab.append(el("span", "rn", String(i + 1)), inp, el("span", "rt", t));
+      if (st.checked) {
+        const should = q.remove.includes(i), chosen = st.sel.includes(i);
+        if (chosen) lab.classList.add(should ? "good" : "bad");
+        else if (should) { lab.classList.add("missed"); lab.appendChild(el("span", "rnote", "should be removed")); }
+      }
+      list.appendChild(lab);
+    });
+  }
+
+  function renderTool() {
+    toolList.innerHTML = "";
+    q.tool.options.forEach(opt => {
+      const lab = el("label", "chk");
+      const inp = document.createElement("input"); inp.type = "radio"; inp.name = "hot-tool"; inp.value = opt; inp.checked = st.tool === opt;
+      inp.addEventListener("change", () => { st.tool = opt; clearFeedback(); });
+      const span = el("span", null, opt);
+      const badge = el("span", "badge");
+      if (st.checked && inp.checked) { const ok = opt === q.tool.answer; badge.classList.add(ok ? "correct" : "incorrect"); badge.textContent = ok ? "Correct" : "Incorrect"; }
+      lab.append(inp, span, badge);
+      toolList.appendChild(lab);
+    });
+  }
+
+  renderList(); renderTool();
+
+  function clearFeedback() {
+    st.checked = false;
+    pill.classList.remove("show", "full", "partial");
+    analysisBox.classList.remove("show");
+    renderList(); renderTool();
+  }
+
+  function doSubmit() {
+    const good = st.sel.filter(i => q.remove.includes(i)).length, bad = st.sel.length - good;
+    const lPts = Math.max(0, good - bad), tPts = st.tool === q.tool.answer ? 1 : 0;
+    st.checked = true;
+    renderList(); renderTool();
+    setPill(pill, lPts + tPts, q.remove.length + 1);
+    analysisBox.classList.add("show");
+  }
+
+  function doShow() { st.sel = q.remove.slice(); st.tool = q.tool.answer; doSubmit(); }
+  function doReset() { states[current] = freshState(q); renderQuestion(); }
+}
+
+/* ============================================================
+   TYPE: recon2 (Q6) — Part 1 / Part 2 tabs
+============================================================ */
+function bodyRecon(q, st, stage) {
+  const sec = el("div", "section");
+  sectionHead(sec, q.title, "Work through Part 1, then Part 2.");
+
+  const tabs = el("div", "term-tabs");
+  ["Part 1", "Part 2"].forEach((label, i) => {
+    const b = el("button", "term-tab" + (st.tab === i ? " active" : ""), label); b.type = "button";
+    b.addEventListener("click", () => { st.tab = i; rerender(); });
+    tabs.appendChild(b);
+  });
+  sec.appendChild(tabs);
+
+  const partWrap = el("div"); partWrap.style.border = "1px solid var(--border)"; partWrap.style.borderTop = "0";
+  partWrap.style.borderRadius = "0 0 12px 12px"; partWrap.style.background = "var(--panel)"; partWrap.style.padding = "16px"; partWrap.style.marginBottom = "4px";
+  sec.appendChild(partWrap);
+  renderPart();
+
+  const { row: actionsRow, pill } = buildActions(doSubmit, doShow, doReset);
+  sec.appendChild(actionsRow);
+  const analysisHtml = `<p><strong>Part 1:</strong> ${q.part1.why}</p><p><strong>Escalation:</strong> ${q.part2.escWhy}</p><p><strong>Remediation:</strong> ${q.part2.remWhy}</p>`;
+  const analysisBox = buildAnalysis(analysisHtml);
+  sec.appendChild(analysisBox);
+  stage.appendChild(sec);
+
+  function rerender() {
+    [...tabs.children].forEach((b, i) => b.classList.toggle("active", i === st.tab));
+    renderPart();
+  }
+
+  function renderPart() {
+    partWrap.innerHTML = "";
+    if (st.tab === 0) {
+      const panel = el("div", "term-panel"); panel.style.marginBottom = "18px";
+      const rh = el("div"); rh.style.background = "#0d6efd"; rh.style.color = "#fff"; rh.style.padding = "10px 16px"; rh.style.fontWeight = "650"; rh.style.fontSize = ".9rem"; rh.textContent = q.part1.label;
+      const body = el("div", "term-body"); body.appendChild(el("pre", null, q.part1.terminal));
+      panel.append(rh, body); partWrap.appendChild(panel);
+
+      const box = el("div"); box.style.marginTop = "12px";
+      const h3 = el("div"); h3.style.fontFamily = "'Space Grotesk',sans-serif"; h3.style.fontWeight = "600"; h3.style.fontSize = "13.5px"; h3.style.marginBottom = "10px"; h3.innerHTML = q.part1.prompt;
+      box.appendChild(h3);
+      const list = el("div", "chk-list");
+      q.part1.options.forEach(opt => {
+        const lbl = el("label", "chk"); lbl.style.fontFamily = "'IBM Plex Mono',monospace"; lbl.style.fontSize = "12px";
+        const inp = document.createElement("input"); inp.type = "radio"; inp.name = "p1"; inp.value = opt; inp.checked = st.p1 === opt;
+        inp.addEventListener("change", () => { st.p1 = opt; clearFeedback(); });
+        const span = el("span", null, opt);
+        const badge = el("span", "badge");
+        if (st.checked && inp.checked) { const ok = opt === q.part1.answer; badge.classList.add(ok ? "correct" : "incorrect"); badge.textContent = ok ? "Correct" : "Incorrect"; }
+        lbl.append(inp, span, badge);
+        list.appendChild(lbl);
+      });
+      box.appendChild(list);
+      partWrap.appendChild(box);
+    } else {
+      const panel = el("div", "term-panel"); panel.style.marginBottom = "18px";
+      const rh = el("div"); rh.style.background = "#0d6efd"; rh.style.color = "#fff"; rh.style.padding = "10px 16px"; rh.style.fontWeight = "650"; rh.style.fontSize = ".9rem"; rh.textContent = q.part2.label;
+      const list = el("ul", "cmdlist");
+      q.part2.commands.forEach(c => list.appendChild(el("li", null, "> " + c)));
+      const note = el("div", "cmdnote", q.part2.cmdNote);
+      panel.append(rh, list, note); partWrap.appendChild(panel);
+
+      const grid = el("div", "answer-grid");
+
+      const box1 = el("div", "qbox actions-box");
+      const h1 = el("label"); h1.innerHTML = q.part2.escPrompt; box1.appendChild(h1);
+      const list1 = el("div", "chk-list");
+      q.part2.escOptions.forEach(opt => {
+        const lbl = el("label", "chk"); lbl.style.fontFamily = "'IBM Plex Mono',monospace"; lbl.style.fontSize = "11.5px"; lbl.style.whiteSpace = "pre-wrap"; lbl.style.alignItems = "flex-start";
+        const inp = document.createElement("input"); inp.type = "radio"; inp.name = "esc"; inp.value = opt; inp.checked = st.esc === opt; inp.style.marginTop = "3px";
+        inp.addEventListener("change", () => { st.esc = opt; clearFeedback(); });
+        const span = el("span", null, opt);
+        const badge = el("span", "badge"); badge.style.marginLeft = "0"; badge.style.flex = "none";
+        if (st.checked && inp.checked) { const ok = opt === q.part2.escAnswer; badge.classList.add(ok ? "correct" : "incorrect"); badge.textContent = ok ? "Correct" : "Incorrect"; }
+        lbl.append(inp, span, badge);
+        list1.appendChild(lbl);
+      });
+      box1.appendChild(list1); grid.appendChild(box1);
+
+      const box2 = el("div", "qbox actions-box");
+      const h2 = el("label"); h2.innerHTML = q.part2.remPrompt; box2.appendChild(h2);
+      const list2 = el("div", "chk-list");
+      q.part2.remOptions.forEach(opt => {
+        const lbl = el("label", "chk");
+        const inp = document.createElement("input"); inp.type = "checkbox"; inp.name = "rem"; inp.value = opt; inp.checked = st.rem.includes(opt);
+        inp.addEventListener("change", () => { st.rem = [...list2.querySelectorAll("input:checked")].map(x => x.value); clearFeedback(); });
+        const span = el("span", null, opt);
+        const badge = el("span", "badge");
+        if (st.checked && inp.checked) { const ok = q.part2.remAnswers.includes(opt); badge.classList.add(ok ? "correct" : "incorrect"); badge.textContent = ok ? "Correct" : "Incorrect"; }
+        lbl.append(inp, span, badge);
+        list2.appendChild(lbl);
+      });
+      box2.appendChild(list2); grid.appendChild(box2);
+
+      partWrap.appendChild(grid);
+    }
+  }
+
+  function clearFeedback() {
+    st.checked = false;
+    pill.classList.remove("show", "full", "partial");
+    analysisBox.classList.remove("show");
+    renderPart();
+  }
+
+  function doSubmit() {
+    const p1Pts = st.p1 === q.part1.answer ? 1 : 0;
+    const escPts = st.esc === q.part2.escAnswer ? 1 : 0;
+    const good = st.rem.filter(x => q.part2.remAnswers.includes(x)).length, bad = st.rem.length - good;
+    const remPts = Math.max(0, good - bad);
+    st.checked = true;
+    renderPart();
+    setPill(pill, p1Pts + escPts + remPts, 2 + q.part2.remAnswers.length);
+    analysisBox.classList.add("show");
+  }
+
+  function doShow() {
+    st.p1 = q.part1.answer; st.esc = q.part2.escAnswer; st.rem = q.part2.remAnswers.slice();
+    doSubmit();
+  }
+
+  function doReset() { states[current] = freshState(q); renderQuestion(); }
+}
+
+/* ============================================================
+   HELPERS
+============================================================ */
+const $ = id => document.getElementById(id);
+function el(tag, cls, text) { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+
+function makeSelect(options, value, onChange, label) {
+  const sel = document.createElement("select");
+  sel.className = "cell-select";
+  sel.setAttribute("aria-label", label);
+  const blank = document.createElement("option"); blank.value = ""; blank.textContent = "Select"; sel.appendChild(blank);
+  options.forEach(o => { const opt = document.createElement("option"); opt.value = o; opt.textContent = o; sel.appendChild(opt); });
+  sel.value = value;
+  sel.addEventListener("change", () => onChange(sel.value));
+  return sel;
+}
+
+function sectionHead(sec, titleText, subText) {
+  if (titleText) sec.appendChild(el("h2", null, titleText));
+  if (subText) sec.appendChild(el("div", "sub", subText));
+}
+
+function buildActions(onSubmit, onShow, onReset) {
+  const row = el("div", "actions");
+  const submitBtn = el("button", "btn btn-primary", "Submit"); submitBtn.type = "button";
+  const showBtn = el("button", "btn btn-ghost", "Show Answer"); showBtn.type = "button";
+  const resetBtn = el("button", "btn btn-ghost", "Reset"); resetBtn.type = "button";
+  const pill = el("span", "score-pill");
+  submitBtn.addEventListener("click", onSubmit);
+  showBtn.addEventListener("click", onShow);
+  resetBtn.addEventListener("click", onReset);
+  row.append(submitBtn, showBtn, resetBtn, pill);
+  return { row, pill };
+}
+
+function setPill(pill, points, total) {
+  pill.textContent = `${points} / ${total} correct`;
+  pill.className = "score-pill show " + (points === total ? "full" : (points > 0 ? "partial" : ""));
+}
+
+function buildAnalysis(html) {
+  const a = el("div", "analysis");
+  a.appendChild(el("h3", null, "Explanation"));
+  const body = el("div"); body.innerHTML = html;
+  a.appendChild(body);
+  return a;
+}
+
+/* ============================================================
+   STATE
+============================================================ */
+function freshState(q) {
+  if (q.type === "table") return { rows: q.rows.map(() => ({ vuln: "", remed: "" })), checked: false };
+  if (q.type === "match") return { ans: {}, checked: false };
+  if (q.type === "console") { const hist = {}; Object.keys(q.servers).forEach(k => hist[k] = []); return { tab: Object.keys(q.servers)[0], history: hist, sel: {}, checked: false }; }
+  if (q.type === "rbac") return { sel: {}, checked: false };
+  if (q.type === "email") return { sel: {}, checked: false };
+  if (q.type === "mcq") return { choice: null, checked: false };
+  if (q.type === "multi") return { tab: 0, ans: {}, checked: false };
+  if (q.type === "sim") return { open: null, tab: "vuln", ans: { vuln: "", rem: [] }, checked: false };
+  if (q.type === "hotspot") return { sel: [], tool: "", checked: false };
+  if (q.type === "recon2") return { tab: 0, p1: "", esc: "", rem: [], checked: false };
+  return { checked: false };
+}
+const MCQS = [];
+function seededShuffle(arr, seed) {
+  const a = arr.map((v, i) => i); let s = seed * 9301 + 49297;
+  for (let i = a.length - 1; i > 0; i--) { s = (s * 9301 + 49297) % 233280; const j = Math.floor((s / 233280) * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; }
+  return a;
+}
+const MCQ_POS = [1, 0, 2, 3, 3, 1, 2, 0, 2, 0, 3, 1, 3, 0, 1, 2, 2, 1, 0, 3, 1, 0, 3, 2, 1, 2, 3, 0, 0, 2, 3, 1, 2, 3, 0, 1, 2, 0, 3, 1, 3, 0, 1, 2, 1, 0, 2, 3, 3, 2, 0, 1, 3, 0, 2, 1, 1, 3, 2, 0, 2, 1, 0, 3, 1, 3, 0, 2, 2, 1, 0, 3, 1, 3, 0, 2, 3, 0, 1, 2, 3, 1, 0, 2, 3, 1, 2, 0, 3, 2, 1, 0, 1, 2, 0, 3, 2, 3, 0, 1];  /* balanced A-D positions for the correct answer */
+MCQS.forEach((m, i) => {
+  const others = seededShuffle(m.options, i + 7).filter(k => k !== m.answer);
+  const order = others.slice(); order.splice(MCQ_POS[i % MCQ_POS.length], 0, m.answer);
+  questions.push({
+    type: "mcq", kind: "Multiple choice", title: m.topic, domain: m.domain,
+    stem: m.stem,
+    options: order.map(k => m.options[k]),
+    answer: order.indexOf(m.answer),
+    scenario: [m.stem, "Select the <strong>one</strong> best answer, then click <strong>Submit</strong>."],
+    explain: `<p>${m.explain}</p>`
+  });
+});
+
+/* ============================================================
+   TYPE: mcq — single-answer multiple choice
+============================================================ */
+function bodyMcq(q, st, stage) {
+  const sec = el("div", "section mcq");
+  const stem = el("p", "mcq-stem"); stem.innerHTML = q.stem; sec.appendChild(stem);
+
+  const list = el("div", "chk-list mcq-list");
+  const items = [];
+  q.options.forEach((txt, i) => {
+    const lbl = el("label", "chk");
+    const r = document.createElement("input"); r.type = "radio"; r.name = "mcq-" + current; r.value = i;
+    r.checked = st.choice === i;
+    r.addEventListener("change", () => { st.choice = i; clearFeedback(); });
+    const letter = el("span", "mcq-letter", String.fromCharCode(65 + i));
+    const t = el("span", "mcq-text"); t.innerHTML = txt;
+    const badge = el("span", "badge");
+    lbl.append(r, letter, t, badge);
+    list.appendChild(lbl); items.push({ r, badge, lbl });
+  });
+  sec.appendChild(list);
+
+  const { row: actionsRow, pill } = buildActions(doSubmit, doShow, doReset);
+  sec.appendChild(actionsRow);
+  const analysisBox = buildAnalysis(q.explain);
+  sec.appendChild(analysisBox);
+  stage.appendChild(sec);
+
+  function clearFeedback() {
+    st.checked = false;
+    items.forEach(it => { it.badge.className = "badge"; it.badge.textContent = ""; it.lbl.classList.remove("mcq-right", "mcq-wrong"); });
+    pill.classList.remove("show", "full", "partial");
+    analysisBox.classList.remove("show");
+  }
+  function doSubmit() {
+    clearFeedback();
+    if (st.choice === null) { pill.textContent = "Select an answer first"; pill.className = "score-pill show"; return; }
+    const ok = st.choice === q.answer;
+    items.forEach((it, i) => {
+      if (i === q.answer) { it.badge.className = "badge correct"; it.badge.textContent = "Correct answer"; it.lbl.classList.add("mcq-right"); }
+      else if (i === st.choice) { it.badge.className = "badge incorrect"; it.badge.textContent = "Your answer"; it.lbl.classList.add("mcq-wrong"); }
+    });
+    st.checked = true;
+    setPill(pill, ok ? 1 : 0, 1);
+    analysisBox.classList.add("show");
+  }
+  function doShow() { st.choice = q.answer; items[q.answer].r.checked = true; doSubmit(); }
+  function doReset() { states[current] = freshState(q); renderQuestion(); }
+}
+
+const BASE_QUESTIONS = questions.slice();
+let states = questions.map(q => freshState(q));
+let MODE = "practice";
+const EXAM_PASS = 80;
+
+/* ============================================================
+   GLOBAL CONTROLLER
+============================================================ */
+let current = 0;
+const flagged = new Set();
+let timerSeconds = 90 * 60;
+let timerInterval = null;
+
+function formatTimer(s) {
+  const h = Math.floor(s / 3600), m = Math.floor((s % 3600) / 60), sec = s % 60;
+  return `${h}:${String(m).padStart(2, "0")}:${String(sec).padStart(2, "0")}`;
+}
+function tickTimer() {
+  if (timerSeconds > 0) timerSeconds--;
+  $("examTimerText").textContent = "Time Remaining " + formatTimer(timerSeconds);
+  if (timerSeconds <= 0) { clearInterval(timerInterval); timerInterval = null; if (MODE === "exam") finishExam(true); }
+}
+function startTimer() {
+  if (timerInterval) return;
+  $("examTimerText").textContent = "Time Remaining " + formatTimer(timerSeconds);
+  timerInterval = setInterval(tickTimer, 1000);
+}
+function stopTimer() {
+  if (timerInterval) { clearInterval(timerInterval); timerInterval = null; }
+}
+
+function openQRead() { $("qreadOverlay").classList.add("show"); }
+function closeQRead() { $("qreadOverlay").classList.remove("show"); }
+
+function renderQuestion() {
+  const q = questions[current], st = states[current];
+
+  $("examCounterText").textContent = (current + 1) + " of " + questions.length;
+  $("examFlagBtn").classList.toggle("flagged", flagged.has(current));
+  $("prevBtn").disabled = current === 0;
+  $("nextBtn").disabled = current === questions.length - 1;
+  $("finishBtn").classList.toggle("on-last", current === questions.length - 1);
+
+  $("briefTitle").firstChild && ($("briefTitle").firstChild.textContent = "");
+  $("briefTitle").childNodes[0] ? ($("briefTitle").childNodes[0].nodeValue = q.title + " ") : null;
+  // rebuild title text node safely
+  const titleEl = $("briefTitle");
+  titleEl.textContent = "";
+  titleEl.appendChild(document.createTextNode(q.title + " "));
+  const chip = el("span", "sev-chip", q.kind.toUpperCase());
+  titleEl.appendChild(chip);
+
+  const qbody = $("qreadBody"); qbody.innerHTML = "";
+  q.scenario.forEach(t => { const p = el("p"); p.innerHTML = t; qbody.appendChild(p); });
+  closeQRead();
+
+  document.querySelector(".brief").style.display = (q.type === "mcq") ? "none" : "";
+  const stage = $("stage"); stage.innerHTML = "";
+  if (q.type === "table") bodyTable(q, st, stage);
+  else if (q.type === "match") bodyMatch(q, st, stage);
+  else if (q.type === "console") bodyConsole(q, st, stage);
+  else if (q.type === "rbac") bodyRbac(q, st, stage);
+  else if (q.type === "email") bodyEmail(q, st, stage);
+  else if (q.type === "mcq") bodyMcq(q, st, stage);
+  else if (q.type === "multi") bodyMulti(q, st, stage);
+  else if (q.type === "sim") bodySim(q, st, stage);
+  else if (q.type === "hotspot") bodyHotspot(q, st, stage);
+  else if (q.type === "recon2") bodyRecon(q, st, stage);
+
+  $("examScroll").scrollTop = 0;
+}
+
+function goTo(i) { current = i; renderQuestion(); }
+
+function shuffled(arr) { const a = arr.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
+
+function startMode(mode) {
+  MODE = mode;
+  const pbqs = BASE_QUESTIONS.filter(q => q.type !== "mcq");
+  const mcqs = BASE_QUESTIONS.filter(q => q.type === "mcq");
+  questions = (mode === "exam") ? pbqs.concat(shuffled(mcqs)) : BASE_QUESTIONS.slice();
+  states = questions.map(q => freshState(q));
+  flagged.clear();
+  document.body.classList.toggle("exam-mode", mode === "exam");
+  document.body.classList.toggle("practice-mode", mode === "practice");
+  $("landingScreen").style.display = "none";
+  $("resultsScreen").style.display = "none";
+  document.body.classList.add("has-exam-chrome");
+  $("examChrome").style.display = "block";
+  $("examScroll").style.display = "block";
+  $("examBottom").style.display = "flex";
+  stopTimer();
+  if (mode === "exam") { timerSeconds = 90 * 60; startTimer(); }
+  else { $("examTimerText").textContent = "Practice mode"; }
+  if (window.gtag) gtag("event", "start_" + mode, { page: "SY0-801" });
+  goTo(0);
+}
+
+function hideExamChrome() {
+  document.body.classList.remove("has-exam-chrome");
+  $("examChrome").style.display = "none";
+  $("examScroll").style.display = "none";
+  $("examBottom").style.display = "none";
+  stopTimer();
+  closeQRead();
+  document.querySelectorAll(".ddos-win").forEach(w => w.remove());
+}
+function showLanding() { hideExamChrome(); $("resultsScreen").style.display = "none"; $("landingScreen").style.display = "block"; window.scrollTo(0, 0); }
+
+/* ---- grading without revealing ---- */
+function gradeQuestion(q, st) {
+  if (q.type === "mcq") return { pts: st.choice === q.answer ? 1 : 0, max: 1, answered: st.choice !== null };
+  if (q.type === "table") { let p = 0; q.rows.forEach((r, i) => { const c = st.rows[i] || {}; if (c.vuln === r.vuln) p++; if (c.remed === r.remed) p++; }); return { pts: p, max: q.rows.length * 2, answered: st.rows.some(x => x.vuln || x.remed) }; }
+  if (q.type === "match") { let p = 0; q.rows.forEach((r, i) => { if (st.ans[i] === r.answer) p++; }); return { pts: p, max: q.rows.length, answered: Object.keys(st.ans).length > 0 }; }
+  if (q.type === "console") { const keys = Object.keys(q.answer); const p = keys.filter(k => st.sel[k] === q.answer[k]).length; return { pts: p, max: keys.length, answered: Object.keys(st.sel).some(k => st.sel[k]) }; }
+  if (q.type === "email") { const p = q.fields.filter(f => st.sel[f.key] === f.answer).length; return { pts: p, max: q.fields.length, answered: Object.keys(st.sel).some(k => st.sel[k]) }; }
+  if (q.type === "rbac") { let p = 0, m = 0, ans = false; q.blocks.forEach(b => { const sel = st.sel[b.key]; if (b.kind === "radio") { m += 1; if (sel === b.answer) p += 1; if (sel) ans = true; } else { m += b.answers.length; const s = sel || []; const good = s.filter(x => b.answers.includes(x)).length, bad = s.length - good; p += Math.max(0, good - bad); if (s.length) ans = true; } }); return { pts: p, max: m, answered: ans }; }
+  if (q.type === "multi") { let p = 0, m = 0, ans = false; q.blocks.forEach((b, bi) => { const r = blockResult(b, st.ans[bi]); p += r.points; m += r.total; const a = st.ans[bi]; if (a != null && (Array.isArray(a) ? a.length : a !== "")) ans = true; }); return { pts: p, max: m, answered: ans }; }
+  if (q.type === "sim") { const v = st.ans.vuln === q.vuln.answer ? 1 : 0; const good = st.ans.rem.filter(x => q.rem.answers.includes(x)).length, bad = st.ans.rem.length - good; return { pts: v + Math.max(0, good - bad), max: 1 + q.rem.answers.length, answered: st.ans.vuln !== "" || st.ans.rem.length > 0 }; }
+  if (q.type === "hotspot") { const good = st.sel.filter(i => q.remove.includes(i)).length, bad = st.sel.length - good; return { pts: Math.max(0, good - bad) + (st.tool === q.tool.answer ? 1 : 0), max: q.remove.length + 1, answered: st.sel.length > 0 || st.tool !== "" }; }
+  if (q.type === "recon2") { const p1 = st.p1 === q.part1.answer ? 1 : 0; const esc = st.esc === q.part2.escAnswer ? 1 : 0; const good = st.rem.filter(x => q.part2.remAnswers.includes(x)).length, bad = st.rem.length - good; return { pts: p1 + esc + Math.max(0, good - bad), max: 2 + q.part2.remAnswers.length, answered: st.p1 !== "" || st.esc !== "" || st.rem.length > 0 }; }
+  return { pts: 0, max: 0, answered: false };
+}
+
+function askConfirm(title, text, okLabel, onOk) {
+  $("cmTitle").textContent = title; $("cmText").textContent = text; $("cmOk").textContent = okLabel;
+  $("cmOverlay").classList.add("show");
+  $("cmOk").onclick = () => { $("cmOverlay").classList.remove("show"); onOk(); };
+}
+$("cmCancel").addEventListener("click", () => $("cmOverlay").classList.remove("show"));
+
+function finishExam(timeUp) {
+  let pts = 0, max = 0, unanswered = 0;
+  const doms = {};
+  questions.forEach((q, i) => {
+    const g = gradeQuestion(q, states[i]);
+    pts += g.pts; max += g.max; if (!g.answered) unanswered++;
+    const d = q.type === "mcq" ? q.domain : "Performance-based questions";
+    doms[d] = doms[d] || { pts: 0, max: 0 }; doms[d].pts += g.pts; doms[d].max += g.max;
+  });
+  const pct = Math.round((pts / max) * 100), pass = pct >= EXAM_PASS;
+  hideExamChrome();
+  $("rsTitle").textContent = timeUp ? "Time's up" : "Your score";
+  $("rsPct").textContent = pct + "%";
+  $("rsVerdict").textContent = pass ? "PASS" : "NOT YET";
+  $("rsVerdict").className = pass ? "pass" : "fail";
+  $("rsSub").textContent = `${pts} of ${max} points · passing target ${EXAM_PASS}% · ${unanswered} question${unanswered === 1 ? "" : "s"} unanswered · time used ${formatTimer(90 * 60 - timerSeconds)}`;
+  const SECDOMS = ["General Security Concepts","Threats, Vulnerabilities, and Attacks","Security Architecture","Security Operations","Security Program Management and Oversight"]; const order = ["Performance-based questions"].concat(SECDOMS.filter(d => doms[d])).concat(Object.keys(doms).filter(d => d !== "Performance-based questions" && SECDOMS.indexOf(d) < 0));
+  $("rsDomains").innerHTML = "";
+  order.filter(d => doms[d]).forEach(d => {
+    const v = doms[d], p = Math.round((v.pts / v.max) * 100);
+    const card = el("div", "rs-dom");
+    card.innerHTML = `<div class="rs-dom-top"><span>${d}</span><b>${p}%</b></div><div class="rs-bar"><i style="width:${p}%"></i></div><small>${v.pts} / ${v.max} points</small>`;
+    $("rsDomains").appendChild(card);
+  });
+  $("landingScreen").style.display = "none";
+  $("resultsScreen").style.display = "block";
+  window.scrollTo(0, 0);
+  if (window.gtag) gtag("event", "finish_exam", { page: "SY0-801", score: pct, passed: pass, time_up: !!timeUp });
+}
+
+$("practiceBtn").addEventListener("click", () => startMode("practice"));
+$("beginBtn").addEventListener("click", () => startMode("exam"));
+$("retakeBtn").addEventListener("click", () => startMode("exam"));
+$("toPracticeBtn").addEventListener("click", () => startMode("practice"));
+$("rsHomeBtn").addEventListener("click", showLanding);
+$("finishBtn").addEventListener("click", () => {
+  const un = questions.filter((q, i) => !gradeQuestion(q, states[i]).answered).length;
+  askConfirm("Finish exam?", un ? `You have ${un} unanswered question${un === 1 ? "" : "s"}. Once you finish, you can't change your answers.` : "All questions are answered. Once you finish, you can't change your answers.", "Finish exam", () => finishExam(false));
+});
+function leaveToMenu() {
+  if (MODE === "exam") askConfirm("Leave the exam?", "Your progress and timer will be lost.", "Leave exam", showLanding);
+  else showLanding();
+}
+$("homeBtn").addEventListener("click", leaveToMenu);
+$("menuBtn").addEventListener("click", leaveToMenu);
+
+$("examFlagBtn").addEventListener("click", () => {
+  if (flagged.has(current)) flagged.delete(current); else flagged.add(current);
+  $("examFlagBtn").classList.toggle("flagged", flagged.has(current));
+});
+$("prevBtn").addEventListener("click", () => { if (current > 0) goTo(current - 1); });
+$("nextBtn").addEventListener("click", () => { if (current < questions.length - 1) goTo(current + 1); });
+$("qreadBtn").addEventListener("click", openQRead);
+$("qreadClose").addEventListener("click", closeQRead);
+$("qreadOverlay").addEventListener("click", (e) => { if (e.target === $("qreadOverlay")) closeQRead(); });
+
+
+(function(){ var n = questions.filter(q => q.type !== "mcq").length, m = questions.filter(q => q.type === "mcq").length; $("pbqCount").textContent = n; var ms = $("mcqStat"); if (m > 0) { $("mcqCount").textContent = m; if (ms) ms.style.display = ""; } else if (ms) ms.style.display = "none"; })();
+$("waBtn").addEventListener("click", () => { if (window.gtag) gtag("event", "click_whatsapp", { page: "SY0-801" }); });
+$("pmMail").addEventListener("click", () => { if (window.gtag) gtag("event", "click_premium_email", { page: "SY0-801" }); });
+$("coffeeBtn").addEventListener("click", () => { if (window.gtag) gtag("event", "click_coffee", { page: "SY0-801" }); });
+</script>
+
+
+
+</body></html>
